@@ -5,5 +5,10 @@ This is a quick script that I reversed engineered in order to poll ITA Matrix Ai
 
 The ITA Matrix Airfare Search is a great tool so I suggest you go check it out here: http://matrix.itasoftware.com/
 
-
+#TO-DO#
+* Add support for non-direct flights
+* Integrate with Database
+* Further Abstract through Classes
+* Command Line Interface
+* Add graphs
 
