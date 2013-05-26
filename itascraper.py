@@ -2,6 +2,7 @@ import json
 import requests
 import urllib
 import webbrowser
+from GChartWrapper import *
 
 
 BASE_URL="http://matrix.itasoftware.com"
@@ -25,7 +26,7 @@ DEST = "SEA"
 RETURN_DATE = "2013-06-09"
 
 
-DEFAULT_JSON=json.loads('{"slices":[{"origins":["PDX"],"originPreferCity":false,"commandLine":"airlines AA DL AS","destinations":["SEA"],"destinationPreferCity":false,"date":"2013-06-07","isArrivalDate":false,"dateModifier":{"minus":0,"plus":0}},{"destinations":["PDX"],"destinationPreferCity":false,"origins":["SEA"],"originPreferCity":false,"commandLine":"airlines AA DL AS","date":"2013-06-09","isArrivalDate":false,"dateModifier":{"minus":0,"plus":0}}],"pax":{"adults":1},"cabin":"COACH","changeOfAirport":false,"checkAvailability":true,"page":{"size":2000},"sorts":"default"}')
+DEFAULT_JSON=json.loads('{"slices":[{"origins":["PDX"],"originPreferCity":false,"commandLine":"airlines AA DL AS","destinations":["SEA"],"destinationPreferCity":false,"date":"2013-06-07","isArrivalDate":false,"dateModifier":{"minus":0,"plus":0}},{"destinations":["PDX"],"destinationPreferCity":false,"origins":["SEA"],"originPreferCity":false,"commandLine":"airlines AA DL AS","date":"2013-06-09","isArrivalDate":false,"dateModifier":{"minus":0,"plus":0}}],"pax":{"adults":1},"cabin":"COACH","maxStopCount":0,"changeOfAirport":false,"checkAvailability":true,"page":{"size":2000},"sorts":"default"}')
 
 class Solution(object):
     def __init__(self, flights, price, dep_city, arr_city):
@@ -34,6 +35,15 @@ class Solution(object):
         self.dep_city = dep_city
         self.arr_city = arr_city
 
+    def set_stop(conn_flight):
+        self.flights.append(conn_flight)
+
+    def __str__(self):
+        result = "Solution: %s\n" % (self.price)
+        for f in self.flights:
+            result += str(f)
+            result += "\n"
+        return result
 
 class Flight(object):
     def __init__(self,airline,fno, dep_city, arr_city, dep_time, arr_time):
@@ -47,7 +57,12 @@ class Flight(object):
     def __str__(self):
         return "Flight: %s %s \n%s-%s\n%s  -  %s" % (self.airline, self.fno, self.dep_city, self.arr_city, self.dep_time, self.arr_time)
 
-
+    def show_seat_map(self):
+        url = "http://www.seatguru.com/findseatmap/findseatmap.php?"
+        params = { 'carrier':self.airline,
+                    'flightno':self.flightno }
+        url = url + urllib.urlencode(params)
+        webbrowser.open_new(url)
 
 def set_origin(origin_code):
     DEFAULT_JSON['slices'][0]['origins'][0] = origin_code
@@ -71,29 +86,22 @@ def set_return_date(date):
     DEPART_DATE = date
     return date
 
-def show_seat_map(flight_number):
-    url = "http://www.seatguru.com/findseatmap/findseatmap.php?"
-    airline=flight_number[:2]
-    flightno=flight_number[2:]
-    params = { 'airline':airline,
-                'flightno':flightno }
-    url = url + urllib.urlencode(params)
-    webbrowser.open_new(url)
-
-def find_flights():
-    data = BASE_REQUEST+json.dumps(DEFAULT_JSON)
-    resp =  requests.post(BASE_URL+REQUEST_URL+data, headers=HTTP_HEADER)
-    return json.loads(resp.text[4:])
-
-def find_lowest_price(json):
-    return json['result']['solutionList']['minPrice']
+def search_flights():
+    print "Finding flights...%s to %s...%s / %s" % (ORIGIN, DEST, DEPART_DATE, RETURN_DATE)
+    return build_solutions()
 
 
-def find_solutions(json):
+def build_solutions():
     """Returns a list of Solutions"""
 
-    for sol in json['result']['solutionList']['solutions']:
-        
+    data = BASE_REQUEST+json.dumps(DEFAULT_JSON)
+    resp =  requests.post(BASE_URL+REQUEST_URL+data, headers=HTTP_HEADER)
+    j = json.loads(resp.text[4:])
+
+    solution_list = list()
+
+    for sol in j['result']['solutionList']['solutions']:
+
         origin_flight_airline = sol['itinerary']['slices'][0]['flights'][0][:2]
         origin_flight_number = sol['itinerary']['slices'][0]['flights'][0][2:]
         dep_time = sol['itinerary']['slices'][0]['departure']
@@ -110,27 +118,28 @@ def find_solutions(json):
         arr_time = sol['itinerary']['slices'][1]['arrival']
         arr_city = sol['itinerary']['slices'][1]['destination']['code']
         dep_city = sol['itinerary']['slices'][1]['origin']['code']
-        
+
         return_flight = Flight(return_flight_airline, return_flight_number, dep_city, arr_city, dep_time, arr_time)
-        
+
         #Build Flight List and create Solution Object.
-        
-        print origin_flight
-        print return_flight
+        flight_list = [origin_flight, return_flight]
+        price = sol['displayTotal']
+        solution = Solution(flight_list, price, ORIGIN, DEST)
+        solution_list.append(solution)
 
-        print sol['displayTotal']
-        print "\n"
+    return solution_list
 
+def show_graph(solutions, filename):
+    prices = list()
+    for s in solutions:
+        prices.append(float(s.price[3:]))
 
-
-
+    G = GChart('lc', prices, chds='a')
+    G.size(500,500)
+    G.save(filename)
 
 if __name__ == '__main__':
 
-    print "Finding flights...%s to %s...%s / %s" % (ORIGIN, DEST, DEPART_DATE, RETURN_DATE)
-    
-    #show_seat_map("AS644")
-    flights = find_flights()
-    find_solutions(flights)
-
-
+    flights = build_solutions()
+    for s in flights:
+        print s
