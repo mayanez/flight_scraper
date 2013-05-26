@@ -11,4 +11,9 @@ The ITA Matrix Airfare Search is a great tool so I suggest you go check it out h
 * Further Abstract through Classes
 * Command Line Interface
 * Add graphs
+* Calendar automated search support.
+  * Output reminders kayak style:
+      * http://www.kayak.com/images/sample-alerts.gif
+* Add price forecasting from Kayak & Bing
+  * Backtest after enough data is gathered.
 
