@@ -12,14 +12,14 @@ The ITA Matrix Airfare Search is a great tool so I suggest you go check it out h
 * Google Chart API (https://code.google.com/p/google-chartwrapper/)
 
 #TO-DO#
+* Make WebApp read from MongoDB
+* Add more Search Engine Scrapers
+* Add price forecasting from Kayak & Bing
+* Backtest after enough data is gathered.
 * Add support for non-direct flights
-* Integrate with Database
-* Further Abstract through Classes
 * Command Line Interface
-* Add graphs
 * Calendar automated search support.
   * Output reminders kayak style:
       * http://www.kayak.com/images/sample-alerts.gif
-* Add price forecasting from Kayak & Bing
-  * Backtest after enough data is gathered.
+* Stylize WebApp for reporting/Dashboard
 
