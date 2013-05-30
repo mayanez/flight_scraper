@@ -32,25 +32,29 @@ ENGINE = "ITA Matrix"
 DEFAULT_JSON=json.loads('{"slices":[{"origins":["PDX"],"originPreferCity":false,"commandLine":"airlines AA DL AS","destinations":["SEA"],"destinationPreferCity":false,"date":"2013-06-07","isArrivalDate":false,"dateModifier":{"minus":0,"plus":0}},{"destinations":["PDX"],"destinationPreferCity":false,"origins":["SEA"],"originPreferCity":false,"commandLine":"airlines AA DL AS","date":"2013-06-09","isArrivalDate":false,"dateModifier":{"minus":0,"plus":0}}],"pax":{"adults":1},"cabin":"COACH","maxStopCount":0,"changeOfAirport":false,"checkAvailability":true,"page":{"size":2000},"sorts":"default"}')
 
 def set_origin(origin_code):
+    global ORIGIN
     DEFAULT_JSON['slices'][0]['origins'][0] = origin_code
     DEFAULT_JSON['slices'][1]['destinations'][0] = origin_code
     ORIGIN = origin_code
     return origin_code
 
 def set_destination(dest_code):
+    global DEST
     DEFAULT_JSON['slices'][0]['destinations'][0] = dest_code
-    DEFAULT_JSON['slices'][0]['origins'][0] = dest_code
+    DEFAULT_JSON['slices'][1]['origins'][0] = dest_code
     DEST = dest_code
     return dest_code
 
 def set_dep_date(date):
+    global DEPART_DATE
     DEFAULT_JSON['slices'][0]['date'] = date
-    RETURN_DATE = date
+    DEPART_DATE = date
     return date
 
 def set_return_date(date):
+    global RETURN_DATE
     DEFAULT_JSON['slices'][1]['date'] = date
-    DEPART_DATE = date
+    RETURN_DATE = date
     return date
 
 def search_flights():
