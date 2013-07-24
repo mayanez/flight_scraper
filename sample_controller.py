@@ -37,13 +37,13 @@ if __name__ == '__main__':
 		i += 1
 
 
-	for d in dates:
+	for d in date_pairs:
 
-		dep_date = d[0]
-		return_date = d[1]
+		dep_date = d[0].strftime("%Y-%m-%d")
+		return_date = d[1].strftime("%Y-%m-%d")
 
 		print "Searching %s -> %s : %s to %s" % (origin, dest, dep_date, return_date)
 		run_all(origin, dest, dep_date, return_date)
 
-		print "Searching %s -> %s : %s to %s" % (origin, dest, return_date, dep_date)
+		print "Searching %s -> %s : %s to %s" % (dest, origin, dep_date, return_date)
 		run_all(origin, dest, return_date, dep_date)
