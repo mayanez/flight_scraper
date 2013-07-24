@@ -13,7 +13,8 @@ REQUEST_URL = "/xhr/shop/search?"
 HTTP_HEADER= {
         'Host' : 'matrix.itasoftware.com',
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Cache-Control' : 'no-cache'
+        'Cache-Control' : 'no-cache',
+        'Content-Length' : '0'
 }
 
 BASE_REQUEST="name=specificDates&summarizers=carrierStopMatrix\
