@@ -16,7 +16,7 @@ class Flight(EmbeddedDocument):
     def seat_map(self):
         url = "http://www.seatguru.com/findseatmap/findseatmap.php?"
         params = { 'carrier':self.airline,
-                    'flightno':self.flightno }
+                    'flightno':self.fno }
         url = url + urllib.urlencode(params)
         return url
 
