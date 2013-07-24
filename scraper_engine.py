@@ -1,6 +1,7 @@
 import itascraper
 from mongoengine import *
 import datetime
+import urllib
 
 class Flight(EmbeddedDocument):
     airline = StringField()
