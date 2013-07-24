@@ -14,14 +14,15 @@ The ITA Matrix Airfare Search is a great tool so I suggest you go check it out h
 
 #TO-DO#
 * Separate into python packages
-* Make WebApp read from MongoDB
+* Add support for non-direct flights
+* Calendar automated search support.
+* Command Line Interface
+* Backtest after enough data is gathered.
+
 * Add more Search Engine Scrapers
 * Add price forecasting from Kayak & Bing
-* Backtest after enough data is gathered.
-* Add support for non-direct flights
-* Command Line Interface
-* Calendar automated search support.
-  * Output reminders kayak style:
-      * http://www.kayak.com/images/sample-alerts.gif
+* Output reminders kayak style:
+	* http://www.kayak.com/images/sample-alerts.gif
+* Make WebApp read from MongoDB
 * Stylize WebApp for reporting/Dashboard
 
