@@ -1,5 +1,4 @@
 import itascraper
-from mongoengine import *
 
 
 def run_itascraper(origin, dest, dep_date, return_date):
@@ -13,12 +12,3 @@ def run_itascraper(origin, dest, dep_date, return_date):
 def run_all(origin, dest, dep_date, return_date):
 	print "Running All Scrapers..."
 	run_itascraper(origin, dest, dep_date, return_date)
-	
-if __name__ == '__main__':
-	connect('flight_scraper')
-	origin = "SEA"
-	dest = "NYC"
-	dep_date = "2013-06-14"
-	return_date = "2013-06-16"
-	print "Searching %s -> %s : %s to %s" % (origin, dest, dep_date, return_date)
-	run_all(origin, dest, dep_date, return_date)

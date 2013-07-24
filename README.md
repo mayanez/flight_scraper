@@ -9,9 +9,11 @@ The ITA Matrix Airfare Search is a great tool so I suggest you go check it out h
 * Requests (http://docs.python-requests.org/)
 * MongoDB (http://www.mongodb.org/)
 * Flask (http://flask.pocoo.org/)
+* python-dateutil (http://labix.org/python-dateutil)
 * Google Chart API (https://code.google.com/p/google-chartwrapper/)
 
 #TO-DO#
+* Separate into python packages
 * Make WebApp read from MongoDB
 * Add more Search Engine Scrapers
 * Add price forecasting from Kayak & Bing
