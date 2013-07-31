@@ -16,10 +16,8 @@ from dateutil.parser import *
 
 def search_flights(date_pair, origin, dest):
 
-	for d in date_pairs:
-
-		dep_date = d[0].strftime("%Y-%m-%d")
-		return_date = d[1].strftime("%Y-%m-%d")
+		dep_date = date_pair[0].strftime("%Y-%m-%d")
+		return_date = date_pair[1].strftime("%Y-%m-%d")
 
 		print "Searching %s -> %s : %s to %s" % (origin, dest, dep_date, return_date)
 		run_all(origin, dest, dep_date, return_date)
