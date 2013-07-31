@@ -58,11 +58,6 @@ def set_return_date(date):
     RETURN_DATE = date
     return date
 
-def search_flights():
-    print "Finding flights...%s to %s...%s / %s" % (ORIGIN, DEST, DEPART_DATE, RETURN_DATE)
-    return build_solutions()
-
-
 def build_solutions():
     """Returns a list of Solutions"""
     
@@ -72,8 +67,10 @@ def build_solutions():
 
     dep_date_obj = datetime.datetime.strptime(DEPART_DATE, '%Y-%m-%d')
     return_date_obj = datetime.datetime.strptime(RETURN_DATE,'%Y-%m-%d')
-    solution_query = SolutionQuery(engine=ENGINE, origin=ORIGIN, destination=DEST, depart_date=dep_date_obj, return_date=return_date_obj)
+    min_price = j['result']['solutionList']['minPrice']
 
+    solution = Solution(engine=ENGINE, origin=ORIGIN, destination=DEST, depart_date=dep_date_obj, return_date=return_date_obj)
+    solution.min_price = min_price
     for sol in j['result']['solutionList']['solutions']:
 
         origin_flight_airline = sol['itinerary']['slices'][0]['flights'][0][:2]
@@ -96,21 +93,8 @@ def build_solutions():
 
         flight_list = [origin_flight, return_flight]
         price = sol['displayTotal']
-        solution = Solution(flights=flight_list, price=price)
-        solution_query.solutions.append(solution)
+        itinerary = Itinerary(flights=flight_list, price=price)
+        solution.itineraries.append(itinerary)
 
-    solution_query.save()
-    return solution_query
-
-def show_graph(solutions, filename):
-    prices = list()
-    for s in solutions:
-        prices.append(float(s.price[3:]))
-
-    G = GChart('lc', prices, chds='a')
-    G.size(500,500)
-    G.save(filename)
-
-if __name__ == '__main__':
-    connectDB()
-    flights = build_solutions()
+    solution.save()
+    return solution

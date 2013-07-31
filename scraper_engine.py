@@ -1,7 +1,8 @@
 import itascraper
-from mongoengine import *
 import datetime
 import urllib
+
+from mongoengine import *
 
 class Flight(EmbeddedDocument):
     airline = StringField()
@@ -22,7 +23,7 @@ class Flight(EmbeddedDocument):
         return url
 
 
-class Solution(EmbeddedDocument):
+class Itinerary(EmbeddedDocument):
     flights = ListField(EmbeddedDocumentField(Flight))
     price = StringField()
     
@@ -30,11 +31,12 @@ class Solution(EmbeddedDocument):
         return None
 
 
-class SolutionQuery(Document):
+class Solution(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
     engine = StringField(required=True)
     origin = StringField(max_length=100, required=True)
     depart_date = DateTimeField()
     destination = StringField(max_length=100, required=True)
     return_date = DateTimeField()
-    solutions = ListField(EmbeddedDocumentField(Solution))
+    min_price = StringField(required=False)
+    itineraries = ListField(EmbeddedDocumentField(Itinerary))
