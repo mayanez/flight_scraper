@@ -10,9 +10,10 @@ The ITA Matrix Airfare Search is a great tool so I suggest you go check it out h
 * MongoDB (http://www.mongodb.org/)
 * Flask (http://flask.pocoo.org/)
 * python-dateutil (http://labix.org/python-dateutil)
-* Google Chart API (https://code.google.com/p/google-chartwrapper/)
+* Google Vizualizations API (https://code.google.com/p/google-visualization-python/)
 
 #TO-DO#
+* Add graphs to web app
 * Separate into python packages
 * Add support for non-direct flights
 * Calendar automated search support.
@@ -23,6 +24,5 @@ The ITA Matrix Airfare Search is a great tool so I suggest you go check it out h
 * Add price forecasting from Kayak & Bing
 * Output reminders kayak style:
 	* http://www.kayak.com/images/sample-alerts.gif
-* Make WebApp read from MongoDB
 * Stylize WebApp for reporting/Dashboard
 

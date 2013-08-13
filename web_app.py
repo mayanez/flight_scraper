@@ -1,31 +1,18 @@
 import os
 import time
 import datetime
+import scraper_utils
+import graph_engine
 
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, request
 from scraper_utils import *
 from datetime import *
 from mongoengine import *
-
+from graph_engine import *
 #----------------------------------------
 # Utilities
 #----------------------------------------
 
-def generate_table():
-
-
-	TODAY = date.today()
-	weekdays = (FR,SU)
-	until_date = datetime.strptime('12-01-2013', '%m-%d-%Y')
-	date_pairs = generate_date_pairs(DAILY, weekdays, TODAY, until_date)
-	data = list()
-	for d in date_pairs:
-		result= get_all_prices_for_date_pair(d)
-		for r in result:
-			for p in result[r]:
-				v = [d[0].isoformat(), d[1].isoformat(), r, p]
-				data.append(v)
-	return data
 
 #----------------------------------------
 # initialization
@@ -49,6 +36,18 @@ def favicon():
 @app.route("/")
 def index():
 	return render_template('flights.html', data=generate_table())
+
+@app.route("/graph", methods=['GET'])
+def graph():
+	origin = request.args.get('origin')
+	dest = request.args.get('dest')
+	dept = request.args.get('dept')
+	ret = request.args.get('ret')
+
+	dept = datetime.strptime(dept, '%m-%d-%Y')
+	ret = datetime.strptime(ret, '%m-%d-%Y')
+
+	return render_template('graph.html', json_obj=graph_prices(origin, dest, dept, ret))
 
 #----------------------------------------
 # launch
