@@ -1,4 +1,5 @@
 import time
+import scraper_utils
 
 from scraper_utils import *
 
@@ -6,8 +7,8 @@ import gviz_api
 
 def graph_prices(origin, dest, dept_date, return_date):
 
-	description = {"query_date" : ("string", "Query Date"),
-				"min_price" : ("number", "Min Price")}
+	description = {"query_date" : ("datetime", "Query Date"),
+				"min_price" : ("number", "%s to %s" % (dept_date, return_date))}
 
 	dates = list()
 	dates.append(dept_date)
