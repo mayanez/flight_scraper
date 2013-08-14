@@ -35,7 +35,7 @@ def favicon():
 
 @app.route("/")
 def index():
-	return render_template('flights.html', data=generate_table())
+	return render_template('index.html')
 
 @app.route("/graph", methods=['GET'])
 def graph():

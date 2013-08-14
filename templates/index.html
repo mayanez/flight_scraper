@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{%block title%} Flight Scrapper {% endblock %}
+{%block head%}
+{{super()}}
+<script>
+  $(function() {
+    $( "#dept" ).datepicker({ dateFormat: "mm-dd-yy"});
+    $( "#ret" ).datepicker({ dateFormat: "mm-dd-yy"});
+  });
+</script>
+{%endblock%}
+{% block body %}
+<h1>Flight Calendar</h1>
+
+<form action="/graph?origin={{origin}}&dest={{dest}}&dept={{dept}}&ret={{ret}}" method="get">
+	<div>Origin:<input name="origin" value="{{origin}}"></div>
+	<div>Destination:<input name="dest" value="{{dest}}"></div>
+	<div>Departure:<input type="text" name="dept" id="dept" value="{{dept}}"></div>
+	<div>Return:<input type="text" name="ret" id="ret" value="{{ret}}"></div>
+	<div><input type="submit" value="Submit"></div>
+</form>
+
+
+{% endblock %}
