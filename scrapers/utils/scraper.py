@@ -5,15 +5,13 @@ import dateutil
 import calendar
 import datetime
 
-from scraper_controller import run_all
-from scraper_engine import *
+from ..controller import run_all
+from ..solution_model import *
 
 from datetime import *
-from mongoengine import *
 from dateutil.rrule import *
 from dateutil.parser import *
 
-MO, TU, WE, TH, FR, SA, SU = weekdays = tuple(range(7))
 
 def search_flights(date_pair, origin, dest):
 

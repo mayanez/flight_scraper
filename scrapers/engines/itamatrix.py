@@ -3,8 +3,7 @@ import requests
 import urllib
 import webbrowser
 import datetime
-from GChartWrapper import *
-from scraper_engine import *
+from ..solution_model import *
 
 
 BASE_URL="http://matrix.itasoftware.com"

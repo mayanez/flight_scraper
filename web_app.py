@@ -1,14 +1,12 @@
 import os
 import time
 import datetime
-import scraper_utils
-import graph_engine
 
 from flask import Flask, render_template, send_from_directory, request
-from scraper_utils import *
+from scrapers.utils.graph import *
 from datetime import *
 from mongoengine import *
-from graph_engine import *
+from scrapers.utils.scraper import *
 #----------------------------------------
 # Utilities
 #----------------------------------------

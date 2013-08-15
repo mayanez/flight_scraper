@@ -1,9 +1,6 @@
-import time
-import scraper_utils
-
-from scraper_utils import *
-
 import gviz_api
+from scraper import *
+
 
 def graph_prices(origin, dest, dept_date, return_date):
 

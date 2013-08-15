@@ -1,4 +1,3 @@
-import itascraper
 import datetime
 import urllib
 
