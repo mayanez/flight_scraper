@@ -97,4 +97,5 @@ def build_solutions():
         solution.itineraries.append(itinerary)
 
     solution.save()
-    return solution
+    return True
+

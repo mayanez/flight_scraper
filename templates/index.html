@@ -6,19 +6,47 @@
   $(function() {
     $( "#dept" ).datepicker({ dateFormat: "mm-dd-yy"});
     $( "#ret" ).datepicker({ dateFormat: "mm-dd-yy"});
+    $( "#start_date" ).datepicker({ dateFormat: "mm-dd-yy"});
+    $( "#until_date" ).datepicker({ dateFormat: "mm-dd-yy"});
   });
 </script>
 {%endblock%}
 {% block body %}
-<h1>Flight Calendar</h1>
+<h1>Flight Scraper</h1>
 
-<form action="/graph?origin={{origin}}&dest={{dest}}&dept={{dept}}&ret={{ret}}" method="get">
-	<div>Origin:<input name="origin" value="{{origin}}"></div>
-	<div>Destination:<input name="dest" value="{{dest}}"></div>
-	<div>Departure:<input type="text" name="dept" id="dept" value="{{dept}}"></div>
-	<div>Return:<input type="text" name="ret" id="ret" value="{{ret}}"></div>
-	<div><input type="submit" value="Submit"></div>
-</form>
+<div id="query_form">
+	<form action="/query" method="get">
+		<div>Origin:<input type="text" name="origin"></div>
+		<div>Destination:<input type="text" name="dest"></div>
+		<div>Frequency:
+			<select name="freq">
+				<option value="DAILY">Daily</option>
+			</select>
+		</div>
+		<div>
+			Weekdays:<br/>
+			<input type="checkbox" name="weekdays" value="0">MO<br/>
+			<input type="checkbox" name="weekdays" value="1">TU<br/>
+			<input type="checkbox" name="weekdays" value="2">WE<br/>
+			<input type="checkbox" name="weekdays" value="3">TH<br/>
+			<input type="checkbox" name="weekdays" value="4">FR<br/>
+			<input type="checkbox" name="weekdays" value="5">SA<br/>
+			<input type="checkbox" name="weekdays" value="6">SU<br/>
+		</div>
+		<div>Start Date:<input type="text" name="start_date" id="start_date"></div>
+		<div>Until Date:<input type="text" name="until_date" id="until_date"></div>
+		<div><input type="submit" value="Submit"></div>
+	</form>
+</div>
 
+<div id="graph_form">
+	<form action="/graph" method="get">
+		<div>Origin:<input type="text" name="origin"></div>
+		<div>Destination:<input type="text" name="dest"></div>
+		<div>Departure:<input type="text" name="dept" id="dept"></div>
+		<div>Return:<input type="text" name="ret" id="ret"></div>
+		<div><input type="submit" value="Submit"></div>
+	</form>
+</div>
 
 {% endblock %}
