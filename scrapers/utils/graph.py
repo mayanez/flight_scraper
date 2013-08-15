@@ -15,7 +15,7 @@ def graph_prices(origin, dest, dept_date, return_date):
 	data = list()
 	for r in result:
 		for p in result[r]:
-			v = {"query_date" : r, "min_price" : float(p)}
+			v = {"query_date" : r, "min_price" : p}
 			data.append(v)
 
 	data_table = gviz_api.DataTable(description)

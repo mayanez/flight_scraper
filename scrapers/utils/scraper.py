@@ -44,15 +44,21 @@ def generate_date_pairs(frequency, weekdays, start_date, until_date):
 
     return date_pairs
 
+def get_solutions(origin, dest, date_pair):
+
+    solutions = Solution.objects(depart_date=date_pair[0], return_date=date_pair[1], origin=origin, destination=dest)
+
+    return solutions
+
 #This method returns a dict of all queried prices and query_date for a specific date_pair
 def get_all_prices_for_date_pair(origin, dest, date_pair):
 
     result = dict()
-    solutions = Solution.objects(depart_date=date_pair[0], return_date=date_pair[1], origin=origin, destination=dest)
+    solutions = get_solutions(origin, dest, date_pair)
 
     for sol in solutions:
         query_date = sol.query_date
-        min_price = sol.min_price[3:] #get rid of USD
+        min_price = float(sol.min_price[3:]) #get rid of USD
         
         if (not result.has_key(query_date)):
             prices = list()
