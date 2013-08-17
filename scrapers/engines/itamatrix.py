@@ -58,7 +58,9 @@ def set_return_date(date):
     return date
 
 def build_solutions():
-    """Returns a list of Solutions"""
+    """
+        Builds search solution. Adds to MongoDB and returns the Solution object.
+    """
     
     data = BASE_REQUEST+json.dumps(DEFAULT_JSON)
     resp =  requests.post(BASE_URL+REQUEST_URL+data, headers=HTTP_HEADER)
@@ -96,5 +98,5 @@ def build_solutions():
         solution.itineraries.append(itinerary)
 
     solution.save()
-    return True
+    return solution
 

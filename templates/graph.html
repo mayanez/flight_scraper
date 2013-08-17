@@ -2,14 +2,11 @@
 You are free to copy and use this sample in accordance with the terms of the
 Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
 -->
+{% extends "base.html" %}
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+  {%block head%}
+  {{super()}}
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>
-      Google Visualization API Sample
-    </title>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load('visualization', '1', {packages: ['corechart']});
@@ -25,13 +22,63 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
       visualization = new google.visualization.LineChart(document.getElementById('chart'));
       visualization.draw(data, {'allowHtml': true});
     }
-    
 
     google.setOnLoadCallback(drawVisualization);
     </script>
-  </head>
-  <body style="font-family: Arial;border: 0 none;">
+
+    <script type="text/javascript">
+      $('.query_set').click(function() {
+
+        $(this).nextUntil('ul.query_set').slideToggle(100);
+      })
+    </script>
+  {% endblock %}
+
+{% block body %}
     <div id="chart"></div>
-  </body>
-</html>
+    <div id="query_set">
+     
+      {% for sol in solutions %}
+       <div class="query_info">
+        <table>
+          <tr>
+            <td>Query Date</td>
+            <td>Min Price</td>
+          </tr>
+          <tr>
+            <td> {{sol.query_date}} </td>
+            <td> {{sol.min_price}} </td>
+          </tr>
+        </table>
+        <table class="solutions">
+          <tr>
+            <td> Price </td>
+            <td> Airline </td>
+            <td> Flight No </td>
+            <td> Dept Time </td>
+            <td> Seat Map </td>
+            <td> Airline </td>
+            <td> Flight No </td>
+            <td> Dept Time </td>
+            <td> Seat Map </td>
+          </tr>
+
+          {% for itinerary in sol.itineraries %}
+            <tr>
+              <td> {{itinerary.price}} </td>
+            {% for flight in itinerary.flights %}
+              <td> {{flight.airline}} </td>
+              <td> {{flight.fno}} </td>
+              <td> {{flight.dep_time}} </td>
+              <td> <a href="{{flight.seat_map()}}">SeatGuru</a> </td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% endfor %}
+
+    </div>
+{% endblock %}
+
 ​

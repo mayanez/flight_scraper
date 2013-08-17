@@ -1,9 +1,12 @@
 import gviz_api
-from scraper import *
+import scraper
 
 
 def graph_prices(origin, dest, dept_date, return_date):
-
+	"""
+		This function creates a Google Visualizations DataTable JSON object.
+		It is then passed to the Google Visualizations API to be rendered.
+	"""
 	description = {"query_date" : ("datetime", "Query Date"),
 				"min_price" : ("number", "%s to %s" % (dept_date, return_date))}
 
@@ -11,7 +14,7 @@ def graph_prices(origin, dest, dept_date, return_date):
 	dates.append(dept_date)
 	dates.append(return_date)
 
-	result = get_all_prices_for_date_pair(origin, dest, dates)
+	result = scraper.get_all_prices_for_date_pair(origin, dest, dates)
 	data = list()
 	for r in result:
 		for p in result[r]:

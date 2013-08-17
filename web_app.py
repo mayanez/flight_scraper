@@ -1,12 +1,12 @@
 import os
 import time
-import datetime
+import mongoengine
 
+from dateutil.rrule import DAILY
+from datetime import datetime
 from flask import Flask, render_template, send_from_directory, request
-from scrapers.utils.graph import *
-from datetime import *
-from mongoengine import *
-from scrapers.utils.scraper import *
+from scrapers.utils.graph import graph_prices
+from scrapers.utils.scraper import generate_date_pairs, search_flights, get_solutions
 #----------------------------------------
 # Utilities
 #----------------------------------------
@@ -18,7 +18,7 @@ from scrapers.utils.scraper import *
 
 app = Flask(__name__)
 
-connect('flight_scraper')
+mongoengine.connect('flight_scraper')
 
 app.config.update(
     DEBUG = True,
@@ -49,6 +49,7 @@ def query():
     until_date = datetime.strptime(until_date, '%m-%d-%Y')
     weekdays = map(int, weekdays)
 
+    #Can probably use dateutils parser for this.
     if freq == "DAILY":
         freq=DAILY
 
@@ -57,7 +58,7 @@ def query():
     result = list()
 
     for d in date_pairs:
-        v = [d[0].isoformat(), d[1].isoformat(), search_flights(d, origin, dest)]
+        v = [d[0].isoformat(), d[1].isoformat(), search_flights(origin, dest, d)]
         result.append(v)
 
     return render_template('query.html', result=result)
@@ -73,7 +74,9 @@ def graph():
     dept = datetime.strptime(dept, '%m-%d-%Y')
     ret = datetime.strptime(ret, '%m-%d-%Y')
 
-    return render_template('graph.html', json_obj=graph_prices(origin, dest, dept, ret))
+    solutions = get_solutions(origin, dest, [dept, ret])
+
+    return render_template('graph.html', json_obj=graph_prices(origin, dest, dept, ret), solutions=solutions)
 
 #----------------------------------------
 # launch

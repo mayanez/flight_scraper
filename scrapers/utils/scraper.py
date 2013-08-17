@@ -4,8 +4,7 @@ import time
 import dateutil
 import calendar
 import datetime
-
-from ..controller import run_all
+from .. import controller 
 from ..solution_model import *
 
 from datetime import *
@@ -13,13 +12,15 @@ from dateutil.rrule import *
 from dateutil.parser import *
 
 
-def search_flights(date_pair, origin, dest):
-
+def search_flights(origin, dest, date_pair):
+    """
+    Searches all engines for queried flight.
+    """
     dep_date = date_pair[0].strftime("%Y-%m-%d")
     return_date = date_pair[1].strftime("%Y-%m-%d")
 
     print "Searching %s -> %s : %s to %s" % (origin, dest, dep_date, return_date)
-    return run_all(origin, dest, dep_date, return_date)
+    return controller.run_all(origin, dest, dep_date, return_date)
 
 
 def generate_date_pairs(frequency, weekdays, start_date, until_date):
@@ -45,14 +46,17 @@ def generate_date_pairs(frequency, weekdays, start_date, until_date):
     return date_pairs
 
 def get_solutions(origin, dest, date_pair):
-
+    """
+    Returns a Solution object from MongoDB
+    """
     solutions = Solution.objects(depart_date=date_pair[0], return_date=date_pair[1], origin=origin, destination=dest)
 
     return solutions
 
-#This method returns a dict of all queried prices and query_date for a specific date_pair
 def get_all_prices_for_date_pair(origin, dest, date_pair):
-
+    """
+    Returns a dict of all queried prices and query_dates for a specific date_pair.
+    """
     result = dict()
     solutions = get_solutions(origin, dest, date_pair)
 

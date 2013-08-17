@@ -2,12 +2,11 @@
 import time
 import datetime
 
-from scraper_utils import *
-from scraper_controller import run_all
+from scrapers.utils.scraper import *
+from scrapers.controller import run_all
 
 from datetime import *
 from mongoengine import *
-from GChartWrapper import *
 
 
 if __name__ == '__main__':
@@ -16,7 +15,7 @@ if __name__ == '__main__':
 	origin = "SEA"
 	dest = "NYC"
 
-	TODAY = date.today() #+ timedelta(days=2)
+	TODAY = date.today() - timedelta(days=2)
 	weekdays = (FR,SU)
 	until_date = datetime.strptime('12-01-2013', '%m-%d-%Y')
 
@@ -29,10 +28,9 @@ if __name__ == '__main__':
 	date_pairs = generate_date_pairs(DAILY, weekdays, TODAY, until_date)
 	
 
-	#Polls search engines
 	print "Running..."
-	# for d in date_pairs:
-		# search_flights(d, origin, dest)
+	for d in date_pairs:
+		search_flights(origin, dest, d)
 	# 	#search_flights(d, dest, origin)
 
 
