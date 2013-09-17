@@ -13,6 +13,7 @@ The ITA Matrix Airfare Search is a great tool so I suggest you go check it out h
 * Google Vizualizations API (https://code.google.com/p/google-visualization-python/)
 
 #TO-DO#
+* Get # of available seats left on flight at time of search. 
 * Add support for non-direct flights
 * Calendar automated search support.
 * Command Line Interface
