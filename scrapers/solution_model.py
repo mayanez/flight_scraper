@@ -3,6 +3,11 @@ import urllib
 
 from mongoengine import *
 
+
+class Seat(EmbeddedDocument):
+    fare_class = StringField()
+    availability = IntField()
+
 class Flight(EmbeddedDocument):
     airline = StringField()
     fno = IntField()
@@ -40,3 +45,4 @@ class Solution(Document):
     return_date = DateTimeField()
     min_price = StringField(required=False)
     itineraries = ListField(EmbeddedDocumentField(Itinerary))
+    seats = ListField(EmbeddedDocumentField(Seat))

@@ -76,7 +76,8 @@ def graph():
 
     solutions = get_solutions(origin, dest, [dept, ret])
 
-    return render_template('graph.html', json_obj=graph_prices(origin, dest, dept, ret), solutions=solutions)
+    length = len(solutions)
+    return render_template('graph.html', json_obj=graph_prices(origin, dest, dept, ret), solutions=solutions, lengthSol=length)
 
 #----------------------------------------
 # launch
