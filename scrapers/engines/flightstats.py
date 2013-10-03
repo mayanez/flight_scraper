@@ -3,7 +3,7 @@ import urllib
 import webbrowser
 import BeautifulSoup
 import re
-from ..solution_model import *
+from ghost import Ghost
 
 BASE_URL="http://www.flightstats.com"
 REQUEST_URI="/go/FlightAvailability/flightAvailability.do"
@@ -18,7 +18,7 @@ PARAMS={
     'airline' : '',
     'arrival' : 'JFK',
     'connection' : '',
-    'queryDate' : '2013-09-27',
+    'queryDate' : '2013-10-11',
     'queryTime' : 'C',
     'excludeConnectionCodes' : '',
     'cabinCode' : 'A',
@@ -47,19 +47,12 @@ def set_dep_date(date):
     return date
 
 def get_content():
-    request_url = BASE_URL+REQUEST_URI
-    resp = requests.get(request_url, params=PARAMS)
-    soup = BeautifulSoup.BeautifulSoup(resp.text)
-    scripts_list = [s.extract() for s in soup('script')]
-    p = re.compile('availLoadingDiv')
-    i=0
-    for s in scripts_list:
-        print i
-        i+=1
-        if p.findall(s.text):
-            print s
-
-#Now must modify the JS found and then serialize the result into a JSON. This will then be properly inserted into DB
+    ghost = Ghost(wait_timeout=40)
+    params = urllib.urlencode(PARAMS)
+    request_url = BASE_URL+REQUEST_URI+("?%s" % params)
+    page, resources = ghost.open(request_url)
+    result, response = ghost.evaluate('JSON.stringify(availRoutes);')
+    print str(result)
 
 if __name__ == '__main__':
     get_content()
