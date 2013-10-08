@@ -1,9 +1,10 @@
-import requests
 import urllib
-import webbrowser
-import BeautifulSoup
-import re
-from ghost import Ghost
+import json
+import datetime
+
+from selenium import webdriver
+from scrapers.solution_model import *
+
 
 BASE_URL="http://www.flightstats.com"
 REQUEST_URI="/go/FlightAvailability/flightAvailability.do"
@@ -19,7 +20,7 @@ PARAMS={
     'arrival' : 'JFK',
     'connection' : '',
     'queryDate' : '2013-10-11',
-    'queryTime' : 'C',
+    'queryTime' : '2',
     'excludeConnectionCodes' : '',
     'cabinCode' : 'A',
     'numOfSeats' : '1',
@@ -29,7 +30,12 @@ PARAMS={
 
 ORIGIN = 'SEA'
 DEST = 'JFK'
-DEPART_DATE = '2013-09-27'
+DEPART_DATE = '2013-10-11'
+DRIVER = None
+
+def init():
+    global DRIVER
+    DRIVER = webdriver.PhantomJS()
 
 def set_origin(origin_code):
     global ORIGIN
@@ -46,15 +52,42 @@ def set_dep_date(date):
     PARAMS['queryDate'] = DEPART_DATE
     return date
 
-def get_content():
-    ghost = Ghost(wait_timeout=40)
+def extract_flights_with_seats(json_obj):
+
+    flight_list = list()
+
+    for k, results in json_obj.iteritems():
+        for k2, flights in results['flights'].iteritems():
+            airline = flights['airline']
+            fno = flights['flightNumber']
+            dep_city = flights['depCode']
+            arr_city = flights['arrCode']
+            flight = Flight(dep_city=dep_city, arr_city=arr_city, airline=airline, fno=fno, dep_time=datetime.datetime.strptime(DEPART_DATE, "%Y-%m-%d"))
+            seats = list()
+
+            for k3, cabin in flights['cabins'].iteritems():
+                cabin_code = cabin['code']
+
+                for fare_class, seat_availability in cabin['fares'].iteritems():
+                    seat = Seat(cabin_code=cabin_code, fare_class=fare_class, availability=seat_availability)
+                    seats.append(seat)
+
+            flight.seats = seats
+            flight_list.append(flight)
+
+    return flight_list
+
+def get_seat_availability():
+    global DRIVER
     params = urllib.urlencode(PARAMS)
     request_url = BASE_URL+REQUEST_URI+("?%s" % params)
-    page, resources = ghost.open(request_url)
-    result, response = ghost.evaluate('JSON.stringify(availRoutes);')
-    print str(result)
+    DRIVER.get(request_url)
+    result = DRIVER.execute_script('return JSON.stringify(availRoutes)')
+    j = json.loads(unicode(result))
 
-if __name__ == '__main__':
-    get_content()
+    flight_list = extract_flights_with_seats(j)
+    seat_query = SeatQuery(flights=flight_list)
+    seat_query.save()
+    DRIVER.quit
 
-
+    return flight_list

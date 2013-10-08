@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{%block body%}
+    <ul>
+        {%for flight in flights%}
+        <li>{{flight.airline}} {{flight.fno}}</li>
+        <ul>
+            {%for seat in flight.seats %}
+            <li>{{seat.fare_class}} {{seat.availability}}</li>
+            {%endfor%}
+        </ul>
+        {%endfor%}
+    </ul>
+{%endblock%}

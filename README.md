@@ -11,6 +11,8 @@ The ITA Matrix Airfare Search is a great tool so I suggest you go check it out h
 * Flask (http://flask.pocoo.org/)
 * python-dateutil (http://labix.org/python-dateutil)
 * Google Vizualizations API (https://code.google.com/p/google-visualization-python/)
+* PhantomJS (http://phantomjs.org/)
+* Selenium (http://docs.seleniumhq.org/)
 
 #TO-DO#
 * Get # of available seats left on flight at time of search. 

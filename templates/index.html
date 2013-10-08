@@ -4,8 +4,8 @@
 {{super()}}
 <script>
   $(function() {
-    $( "#dept" ).datepicker({ dateFormat: "mm-dd-yy"});
-    $( "#ret" ).datepicker({ dateFormat: "mm-dd-yy"});
+    $( ".dept" ).datepicker({ dateFormat: "mm-dd-yy"});
+    $( ".ret" ).datepicker({ dateFormat: "mm-dd-yy"});
     $( "#start_date" ).datepicker({ dateFormat: "mm-dd-yy"});
     $( "#until_date" ).datepicker({ dateFormat: "mm-dd-yy"});
   });
@@ -15,7 +15,7 @@
 <h1>Flight Scraper</h1>
 
 <div id="query_form">
-	<form action="/query" method="get">
+	<form action="/flight/query" method="get">
 		<div>Origin:<input type="text" name="origin"></div>
 		<div>Destination:<input type="text" name="dest"></div>
 		<div>Frequency:
@@ -43,8 +43,17 @@
 	<form action="/graph" method="get">
 		<div>Origin:<input type="text" name="origin"></div>
 		<div>Destination:<input type="text" name="dest"></div>
-		<div>Departure:<input type="text" name="dept" id="dept"></div>
-		<div>Return:<input type="text" name="ret" id="ret"></div>
+		<div>Departure:<input type="text" name="dept" class="dept"></div>
+		<div>Return:<input type="text" name="ret" class="ret"></div>
+		<div><input type="submit" value="Submit"></div>
+	</form>
+</div>
+
+<div id="seat_form">
+    <form action="/seat/query" method="get">
+		<div>Origin:<input type="text" name="origin"></div>
+		<div>Destination:<input type="text" name="dest"></div>
+		<div>Departure:<input type="text" name="dept" class="dept"></div>
 		<div><input type="submit" value="Submit"></div>
 	</form>
 </div>

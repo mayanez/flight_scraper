@@ -20,8 +20,12 @@ def search_flights(origin, dest, date_pair):
     return_date = date_pair[1].strftime("%Y-%m-%d")
 
     print "Searching %s -> %s : %s to %s" % (origin, dest, dep_date, return_date)
-    return controller.run_all(origin, dest, dep_date, return_date)
+    return controller.run_all_flight_scrapers(origin, dest, dep_date, return_date)
 
+def search_seats(origin, dest, dep_date):
+    dep_date = dep_date.strftime("%Y-%m-%d")
+    print "Searching %s -> %s : %s" % (origin, dest, dep_date)
+    return controller.run_all_seat_scrapers(origin, dest, dep_date)
 
 def generate_date_pairs(frequency, weekdays, start_date, until_date):
 

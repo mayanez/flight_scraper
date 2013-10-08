@@ -6,7 +6,8 @@ from dateutil.rrule import DAILY
 from datetime import datetime
 from flask import Flask, render_template, send_from_directory, request
 from scrapers.utils.graph import graph_prices
-from scrapers.utils.scraper import generate_date_pairs, search_flights, get_solutions
+from scrapers.utils.scraper import generate_date_pairs, search_flights, search_seats, get_solutions
+
 #----------------------------------------
 # Utilities
 #----------------------------------------
@@ -15,7 +16,6 @@ from scrapers.utils.scraper import generate_date_pairs, search_flights, get_solu
 #----------------------------------------
 # initialization
 #----------------------------------------
-
 app = Flask(__name__)
 
 mongoengine.connect('flight_scraper')
@@ -35,8 +35,8 @@ def favicon():
 def index():
     return render_template('index.html')
 
-@app.route("/query", methods=['GET'])
-def query():
+@app.route("/flight/query", methods=['GET'])
+def flight_query():
     origin = request.args.get('origin')
     dest = request.args.get('dest')
     freq = request.args.get('freq')
@@ -63,6 +63,15 @@ def query():
 
     return render_template('query.html', result=result)
 
+@app.route("/seat/query", methods=['GET'])
+def seat_query():
+    origin = request.args.get('origin')
+    dest = request.args.get('dest')
+    dept = request.args.get('dept')
+
+    dept = datetime.strptime(dept, '%m-%d-%Y')
+
+    return render_template('seats.html', flights=search_seats(origin, dest, dept))
 
 @app.route("/graph", methods=['GET'])
 def graph():
@@ -84,7 +93,7 @@ def graph():
 #----------------------------------------
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5454))
     app.run(host='0.0.0.0', port=port)
 
 

@@ -5,8 +5,12 @@ from mongoengine import *
 
 
 class Seat(EmbeddedDocument):
+    cabin_code = StringField()
     fare_class = StringField()
     availability = IntField()
+
+    def __str__(self):
+        return "cabin: %s fare: %s avail: %s" % (self.cabin_code, self.fare_class, self.availability)
 
 class Flight(EmbeddedDocument):
     airline = StringField()
@@ -15,6 +19,7 @@ class Flight(EmbeddedDocument):
     arr_city = StringField()
     dep_time = DateTimeField()
     arr_time = DateTimeField()
+    seats = ListField(EmbeddedDocumentField(Seat))
 
     def __str__(self):
         return "Flight: %s %s \n%s-%s\n%s  -  %s" % (self.airline, self.fno, self.dep_city, self.arr_city, self.dep_time, self.arr_time)
@@ -27,14 +32,12 @@ class Flight(EmbeddedDocument):
         url = url + urllib.urlencode(params)
         return url
 
-
 class Itinerary(EmbeddedDocument):
     flights = ListField(EmbeddedDocumentField(Flight))
     price = StringField()
     
     def set_stop(conn_flight):
         return None
-
 
 class Solution(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
@@ -45,4 +48,7 @@ class Solution(Document):
     return_date = DateTimeField()
     min_price = StringField(required=False)
     itineraries = ListField(EmbeddedDocumentField(Itinerary))
-    seats = ListField(EmbeddedDocumentField(Seat))
+
+class SeatQuery(Document):
+    query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
+    flights = ListField(EmbeddedDocumentField(Flight))
