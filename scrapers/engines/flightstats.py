@@ -1,10 +1,13 @@
 import urllib
 import json
 import datetime
+import logging
 
 from selenium import webdriver
 from scrapers.solution_model import *
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 BASE_URL="http://www.flightstats.com"
 REQUEST_URI="/go/FlightAvailability/flightAvailability.do"
@@ -35,27 +38,31 @@ DRIVER = None
 
 def init():
     global DRIVER
+    logger.debug("Starting PhantomJS Selenium Driver")
     DRIVER = webdriver.PhantomJS()
 
 def set_origin(origin_code):
     global ORIGIN
+    ORIGIN = origin_code
     PARAMS['departure'] = ORIGIN
     return origin_code
 
 def set_destination(dest_code):
     global DEST
+    DEST = dest_code
     PARAMS['arrival'] = DEST
     return dest_code
 
 def set_dep_date(date):
     global DEPART_DATE
+    DEPART_DATE = date
     PARAMS['queryDate'] = DEPART_DATE
     return date
 
 def extract_flights_with_seats(json_obj):
 
     flight_list = list()
-
+    logger.info('Extracting flights with seats')
     for k, results in json_obj.iteritems():
         for k2, flights in results['flights'].iteritems():
             airline = flights['airline']
@@ -69,6 +76,11 @@ def extract_flights_with_seats(json_obj):
                 cabin_code = cabin['code']
 
                 for fare_class, seat_availability in cabin['fares'].iteritems():
+                    if seat_availability == "":
+                        seat_availability = 0
+                    else:
+                        seat_availability = int(seat_availability)
+
                     seat = Seat(cabin_code=cabin_code, fare_class=fare_class, availability=seat_availability)
                     seats.append(seat)
 
@@ -81,13 +93,18 @@ def get_seat_availability():
     global DRIVER
     params = urllib.urlencode(PARAMS)
     request_url = BASE_URL+REQUEST_URI+("?%s" % params)
+    logger.info('Requesting URL: %s' % (request_url))
     DRIVER.get(request_url)
+    logger.info('Running Javascript to retrieve available routes')
     result = DRIVER.execute_script('return JSON.stringify(availRoutes)')
     j = json.loads(unicode(result))
 
     flight_list = extract_flights_with_seats(j)
+    logger.info('Saving SeatQuery to Database')
     seat_query = SeatQuery(flights=flight_list)
     seat_query.save()
+    logger.info('Quiting the Web Driver')
     DRIVER.quit
 
     return flight_list
+

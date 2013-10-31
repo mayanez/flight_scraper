@@ -1,10 +1,13 @@
 import json
 import requests
+import logging
 import urllib
 import webbrowser
 import datetime
 from ..solution_model import *
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 BASE_URL="http://matrix.itasoftware.com"
 REQUEST_URL = "/xhr/shop/search?"
@@ -63,6 +66,7 @@ def build_solutions():
     """
     
     data = BASE_REQUEST+json.dumps(DEFAULT_JSON)
+    logger.info('Making request to ITA Matrix')
     resp =  requests.post(BASE_URL+REQUEST_URL+data, headers=HTTP_HEADER)
     j = json.loads(resp.text[4:])
 
@@ -70,6 +74,7 @@ def build_solutions():
     return_date_obj = datetime.datetime.strptime(RETURN_DATE,'%Y-%m-%d')
     min_price = j['result']['solutionList']['minPrice']
 
+    logger.info('Creating objects to insert to database')
     solution = Solution(engine=ENGINE, origin=ORIGIN, destination=DEST, depart_date=dep_date_obj, return_date=return_date_obj)
     solution.min_price = min_price
     for sol in j['result']['solutionList']['solutions']:

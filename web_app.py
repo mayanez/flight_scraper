@@ -5,8 +5,8 @@ import mongoengine
 from dateutil.rrule import DAILY
 from datetime import datetime
 from flask import Flask, render_template, send_from_directory, request
-from scrapers.utils.graph import graph_prices
-from scrapers.utils.scraper import generate_date_pairs, search_flights, search_seats, get_solutions
+from scrapers.utils.graph import graph_prices, graph_seats
+from scrapers.utils.scraper import generate_date_pairs, search_flights, search_seats, get_solutions, get_seats
 
 #----------------------------------------
 # Utilities
@@ -74,7 +74,7 @@ def seat_query():
     return render_template('seats.html', flights=search_seats(origin, dest, dept))
 
 @app.route("/graph", methods=['GET'])
-def graph():
+def graph_1():
     origin = request.args.get('origin')
     dest = request.args.get('dest')
     dept = request.args.get('dept')
@@ -88,6 +88,17 @@ def graph():
     length = len(solutions)
     return render_template('graph.html', json_obj=graph_prices(origin, dest, dept, ret), solutions=solutions, lengthSol=length)
 
+@app.route("/graph_seats", methods=['GET'])
+def graph_2():
+    origin = request.args.get('origin')
+    dest = request.args.get('dest')
+    dept = request.args.get('dept')
+    ret = request.args.get('ret')
+
+    dept = datetime.strptime(dept, '%m-%d-%Y')
+    ret = datetime.strptime(ret, '%m-%d-%Y')
+
+    return render_template('graph_seats.html', json_obj=graph_seats(origin, dest, dept))
 #----------------------------------------
 # launch
 #----------------------------------------

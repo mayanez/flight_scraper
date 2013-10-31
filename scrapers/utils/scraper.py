@@ -4,12 +4,13 @@ import time
 import dateutil
 import calendar
 import datetime
-from .. import controller 
-from ..solution_model import *
+from scrapers import controller
+
 
 from datetime import *
 from dateutil.rrule import *
 from dateutil.parser import *
+from scrapers.solution_model import Solution, SeatQuery
 
 
 def search_flights(origin, dest, date_pair):
@@ -77,7 +78,29 @@ def get_all_prices_for_date_pair(origin, dest, date_pair):
 
     return result
 
+def get_seats(origin, dest, date):
 
+    seat_query = SeatQuery.objects(flights__dep_city=origin, flights__arr_city=dest, flights__dep_time=date)
+
+    return seat_query
+
+def get_total_seat_availability(origin, dest, date):
+
+    seat_availability = dict()
+    seat_query = get_seats(origin, dest, date)
+
+    for query in seat_query:
+        flights = query.flights
+
+        for flight in flights:
+            seats = flight.seats
+            for seat in seats:
+                if (not seat_availability.has_key(query.query_date)):
+                    seat_availability[query.query_date] = seat.availability
+                else:
+                    seat_availability[query.query_date] += seat.availability
+
+    return seat_availability
 
 
 
