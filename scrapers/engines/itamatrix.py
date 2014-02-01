@@ -66,8 +66,9 @@ def build_solutions():
     """
     
     data = BASE_REQUEST+json.dumps(DEFAULT_JSON)
-    logger.info('Making request to ITA Matrix')
-    resp =  requests.post(BASE_URL+REQUEST_URL+data, headers=HTTP_HEADER)
+    request_url = BASE_URL+REQUEST_URL+data
+    logger.info('Making request to ITA Matrix: %s', (request_url))
+    resp =  requests.post(request_url, headers=HTTP_HEADER)
     j = json.loads(resp.text[4:])
 
     dep_date_obj = datetime.datetime.strptime(DEPART_DATE, '%Y-%m-%d')

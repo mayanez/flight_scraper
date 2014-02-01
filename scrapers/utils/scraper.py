@@ -10,7 +10,7 @@ from scrapers import controller
 from datetime import *
 from dateutil.rrule import *
 from dateutil.parser import *
-from scrapers.solution_model import Solution, SeatQuery
+from scrapers.solution_model import Solution, SeatQuery, Flight
 
 
 def search_flights(origin, dest, date_pair):
@@ -101,6 +101,27 @@ def get_total_seat_availability(origin, dest, date):
                     seat_availability[query.query_date] += seat.availability
 
     return seat_availability
+
+def get_itineraries(origin, dest, dep_date, ret_date, match_flights):
+
+    results = list()
+    solutions = get_solutions(origin, dest, [dep_date, ret_date])
+
+    for sol in solutions:
+        itineraries = sol.itineraries
+        for itinerary in itineraries:
+            flights = set(itinerary.flights)
+            matched = flights.intersection(match_flights)
+            if len(matched) > 0:
+                results.append(itinerary)
+
+    return results
+
+def get_min_price_itinerary(itineraries):
+
+    return min(itineraries, key=lambda x: x.price)
+
+
 
 
 

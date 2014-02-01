@@ -24,6 +24,15 @@ class Flight(EmbeddedDocument):
     def __str__(self):
         return "Flight: %s %s \n%s-%s\n%s  -  %s" % (self.airline, self.fno, self.dep_city, self.arr_city, self.dep_time, self.arr_time)
 
+    def __repr__(self):
+        return self.__str__
+
+    def __eq__(self, other):
+        return ((self.airline == other.airline) and (self.fno == other.fno))
+
+    def __hash__(self):
+        return hash((self.airline, self.fno))
+
     def seat_map(self):
         url = "http://www.seatguru.com/findseatmap/findseatmap.php?"
         params = { 'carrier':self.airline,
@@ -35,7 +44,10 @@ class Flight(EmbeddedDocument):
 class Itinerary(EmbeddedDocument):
     flights = ListField(EmbeddedDocumentField(Flight))
     price = StringField()
-    
+
+    def __str__(self):
+        return "Itinerary:\n \tPrice=%s\n \t%s" % (self.price, [str(f) for f in self.flights])
+
     def set_stop(conn_flight):
         return None
 

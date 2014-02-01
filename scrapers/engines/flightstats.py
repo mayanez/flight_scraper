@@ -39,7 +39,7 @@ DRIVER = None
 def init():
     global DRIVER
     logger.debug("Starting PhantomJS Selenium Driver")
-    DRIVER = webdriver.PhantomJS()
+    DRIVER = webdriver.PhantomJS(executable_path="/usr/local/bin/phantomjs", service_log_path="/Users/mayanez/Library/Logs/ghostdriver.log")
 
 def set_origin(origin_code):
     global ORIGIN
