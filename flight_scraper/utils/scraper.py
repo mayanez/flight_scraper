@@ -4,24 +4,14 @@ import time
 import dateutil
 import calendar
 import datetime
-from scrapers import controller
 
 
 from datetime import *
 from dateutil.rrule import *
 from dateutil.parser import *
-from scrapers.solution_model import Solution, SeatQuery, Flight
+from flight_scraper.solution_model import Solution, SeatQuery, Flight
 
 
-def search_flights(origin, dest, date_pair):
-    """
-    Searches all engines for queried flight.
-    """
-    dep_date = date_pair[0].strftime("%Y-%m-%d")
-    return_date = date_pair[1].strftime("%Y-%m-%d")
-
-    print "Searching %s -> %s : %s to %s" % (origin, dest, dep_date, return_date)
-    return controller.run_all_flight_scrapers(origin, dest, dep_date, return_date)
 
 def search_seats(origin, dest, dep_date):
     dep_date = dep_date.strftime("%Y-%m-%d")
@@ -50,14 +40,6 @@ def generate_date_pairs(frequency, weekdays, start_date, until_date):
 
     return date_pairs
 
-def get_solutions(origin, dest, date_pair):
-    """
-    Returns a Solution object from MongoDB
-    """
-    solutions = Solution.objects(depart_date=date_pair[0], return_date=date_pair[1], origin=origin, destination=dest)
-
-    return solutions
-
 def get_all_prices_for_date_pair(origin, dest, date_pair):
     """
     Returns a dict of all queried prices and query_dates for a specific date_pair.
@@ -78,12 +60,6 @@ def get_all_prices_for_date_pair(origin, dest, date_pair):
 
     return result
 
-def get_seats(origin, dest, date):
-
-    seat_query = SeatQuery.objects(flights__dep_city=origin, flights__arr_city=dest, flights__dep_time=date)
-
-    return seat_query
-
 def get_total_seat_availability(origin, dest, date):
 
     seat_availability = dict()
@@ -101,21 +77,6 @@ def get_total_seat_availability(origin, dest, date):
                     seat_availability[query.query_date] += seat.availability
 
     return seat_availability
-
-def get_itineraries(origin, dest, dep_date, ret_date, match_flights):
-
-    results = list()
-    solutions = get_solutions(origin, dest, [dep_date, ret_date])
-
-    for sol in solutions:
-        itineraries = sol.itineraries
-        for itinerary in itineraries:
-            flights = set(itinerary.flights)
-            matched = flights.intersection(match_flights)
-            if len(matched) > 0:
-                results.append(itinerary)
-
-    return results
 
 def get_min_price_itinerary(itineraries):
 

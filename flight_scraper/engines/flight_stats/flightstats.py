@@ -4,7 +4,7 @@ import datetime
 import logging
 
 from selenium import webdriver
-from scrapers.solution_model import *
+from flight_scraper.solution_model import *
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

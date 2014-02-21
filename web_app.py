@@ -1,12 +1,11 @@
 import os
-import time
 import mongoengine
 
 from dateutil.rrule import DAILY
 from datetime import datetime
 from flask import Flask, render_template, send_from_directory, request
-from scrapers.utils.graph import graph_prices, graph_seats
-from scrapers.utils.scraper import generate_date_pairs, search_flights, search_seats, get_solutions, get_seats
+from flight_scraper.flight_scraper import FlightScraper
+from flight_scraper.utils.scraper import generate_date_pairs, search_seats
 
 #----------------------------------------
 # Utilities
@@ -23,6 +22,8 @@ mongoengine.connect('flight_scraper')
 app.config.update(
     DEBUG = True,
 )
+
+flight_scraper = FlightScraper()
 
 #----------------------------------------
 # controllers
@@ -57,48 +58,62 @@ def flight_query():
 
     result = list()
 
+    flight_scraper.origin = origin
+    flight_scraper.destination = dest
+
     for d in date_pairs:
-        v = [d[0].isoformat(), d[1].isoformat(), search_flights(origin, dest, d)]
+        flight_scraper.depart_date = d[0]
+        flight_scraper.return_date = d[1]
+        v = [d[0].isoformat(), d[1].isoformat(), flight_scraper.search_flights()]
         result.append(v)
 
     return render_template('query.html', result=result)
 
 @app.route("/seat/query", methods=['GET'])
 def seat_query():
-    origin = request.args.get('origin')
-    dest = request.args.get('dest')
-    dept = request.args.get('dept')
-
-    dept = datetime.strptime(dept, '%m-%d-%Y')
-
-    return render_template('seats.html', flights=search_seats(origin, dest, dept))
+    """
+        TODO: Refactor
+    """
+    #origin = request.args.get('origin')
+    #dest = request.args.get('dest')
+    #dept = request.args.get('dept')
+    #
+    #dept = datetime.strptime(dept, '%m-%d-%Y')
+    #
+    #return render_template('seats.html', flights=search_seats(origin, dest, dept))
 
 @app.route("/graph", methods=['GET'])
 def graph_1():
-    origin = request.args.get('origin')
-    dest = request.args.get('dest')
-    dept = request.args.get('dept')
-    ret = request.args.get('ret')
+    """
+        TODO: Refactor
+    """
+    #origin = request.args.get('origin')
+    #dest = request.args.get('dest')
+    #dept = request.args.get('dept')
+    #ret = request.args.get('ret')
+    #
+    #dept = datetime.strptime(dept, '%m-%d-%Y')
+    #ret = datetime.strptime(ret, '%m-%d-%Y')
 
-    dept = datetime.strptime(dept, '%m-%d-%Y')
-    ret = datetime.strptime(ret, '%m-%d-%Y')
+    #solutions = get_solutions(origin, dest, [dept, ret])
 
-    solutions = get_solutions(origin, dest, [dept, ret])
-
-    length = len(solutions)
-    return render_template('graph.html', json_obj=graph_prices(origin, dest, dept, ret), solutions=solutions, lengthSol=length)
+    #length = len(solutions)
+    #return render_template('graph.html', json_obj=graph_prices(origin, dest, dept, ret), solutions=solutions, lengthSol=length)
 
 @app.route("/graph_seats", methods=['GET'])
 def graph_2():
-    origin = request.args.get('origin')
-    dest = request.args.get('dest')
-    dept = request.args.get('dept')
-    ret = request.args.get('ret')
-
-    dept = datetime.strptime(dept, '%m-%d-%Y')
-    ret = datetime.strptime(ret, '%m-%d-%Y')
-
-    return render_template('graph_seats.html', json_obj=graph_seats(origin, dest, dept))
+    """
+        TODO: Refactor
+    """
+    #origin = request.args.get('origin')
+    #dest = request.args.get('dest')
+    #dept = request.args.get('dept')
+    #ret = request.args.get('ret')
+    #
+    #dept = datetime.strptime(dept, '%m-%d-%Y')
+    #ret = datetime.strptime(ret, '%m-%d-%Y')
+    #
+    #return render_template('graph_seats.html', json_obj=graph_seats(origin, dest, dept))
 #----------------------------------------
 # launch
 #----------------------------------------
