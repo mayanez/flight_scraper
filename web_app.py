@@ -5,6 +5,7 @@ from dateutil.rrule import DAILY
 from datetime import datetime
 from flask import Flask, render_template, send_from_directory, request
 from flight_scraper.flight_scraper import FlightScraper
+from flight_scraper.utils.graph import graph_prices
 from flight_scraper.utils.scraper import generate_date_pairs, search_seats
 
 #----------------------------------------
@@ -83,22 +84,24 @@ def seat_query():
     #return render_template('seats.html', flights=search_seats(origin, dest, dept))
 
 @app.route("/graph", methods=['GET'])
-def graph_1():
-    """
-        TODO: Refactor
-    """
-    #origin = request.args.get('origin')
-    #dest = request.args.get('dest')
-    #dept = request.args.get('dept')
-    #ret = request.args.get('ret')
-    #
-    #dept = datetime.strptime(dept, '%m-%d-%Y')
-    #ret = datetime.strptime(ret, '%m-%d-%Y')
+def graph_flights():
+    origin = request.args.get('origin')
+    dest = request.args.get('dest')
+    dept = request.args.get('dept')
+    ret = request.args.get('ret')
 
-    #solutions = get_solutions(origin, dest, [dept, ret])
+    dept = datetime.strptime(dept, '%m-%d-%Y')
+    ret = datetime.strptime(ret, '%m-%d-%Y')
 
-    #length = len(solutions)
-    #return render_template('graph.html', json_obj=graph_prices(origin, dest, dept, ret), solutions=solutions, lengthSol=length)
+    flight_scraper.origin = origin
+    flight_scraper.destination = dest
+    flight_scraper.depart_date = dept
+    flight_scraper.return_date = ret
+
+    solutions = flight_scraper.solutions()
+
+    length = len(solutions)
+    return render_template('graph.html', json_obj=graph_prices(flight_scraper), solutions=solutions, lengthSol=length)
 
 @app.route("/graph_seats", methods=['GET'])
 def graph_2():

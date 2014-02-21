@@ -30,27 +30,23 @@ def generate_date_pairs(frequency, weekdays, start_date, until_date):
 
     return date_pairs
 
-def get_all_prices_for_date_pair(origin, dest, date_pair):
-    """
-    TODO: Refactor
-    Returns a dict of all queried prices and query_dates for a specific date_pair.
-    """
-    #result = dict()
-    #solutions = get_solutions(origin, dest, date_pair)
-    #
-    #for sol in solutions:
-    #    query_date = sol.query_date
-    #    min_price = float(sol.min_price[3:]) #get rid of USD
-    #
-    #    if (not result.has_key(query_date)):
-    #        prices = list()
-    #        prices.append(min_price)
-    #        result[query_date] = prices
-    #    else:
-    #        result[query_date].append(min_price)
-    #
-    #return result
+def get_prices_by_query_dates(flight_scraper):
+        """ Returns a dict of all queried prices and query_dates for the depart_date & return_date. """
+        result = dict()
+        solutions = flight_scraper.solutions()
 
+        for sol in solutions:
+            query_date = sol.query_date
+            min_price = float(sol.min_price[3:]) #gets rid of USD in string
+
+            if (not result.has_key(query_date)):
+                prices = list()
+                prices.append(min_price)
+                result[query_date] = prices
+            else:
+                result[query_date].append(min_price)
+
+        return result
 def get_total_seat_availability(origin, dest, date):
     """ TODO: Refactor """
 
