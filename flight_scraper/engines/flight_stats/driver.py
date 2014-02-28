@@ -1,12 +1,13 @@
 import json
 import logging
 import urllib
+import datetime
 from scrapers.solution_model import Seat, Flight, SeatQuery
 from selenium import webdriver
 
 logging.basicConfig(level=logging.INFO)
 
-class FlightStatsDriver(webdriver.PhantomJS):
+class FlightStatsDriver(object):
     __logger = logging.getLogger(__name__)
     __base_url = "http://www.flightstats.com"
     __request_uri = "/go/FlightAvailability/flightAvailability.do"
@@ -25,41 +26,34 @@ class FlightStatsDriver(webdriver.PhantomJS):
         'numOfSeats' : '1',
         'queryType' : 'D',
         'fareClassCodes' : ''}
+    __driver = None
 
     @property
     def origin(self):
-        return self.__origin
+        return self.__params['departure']
 
     @origin.setter
     def origin(self, origin):
-        self.__origin = origin
+        self.__params['departure'] = origin
 
     @property
     def destination(self):
-        return self.__destination
+        return self.__params['arrival']
 
     @destination.setter
     def destination(self, destination):
-        self.__destination = destination
+        self.__params['arrival'] = destination
 
     @property
     def depart_date(self):
-        return self.__depart_date
+        return datetime.datetime.strptime(self.__params['queryDate'], "%Y-%m-%d")
 
     @depart_date.setter
     def depart_date(self, depart_date):
-        self.__depart_date = depart_date
-
-    @property
-    def return_date(self):
-        return self.__return_date
-
-    @return_date.setter
-    def return_date(self, return_date):
-        self.__return_date = return_date
+        self.__params['queryDate'] = depart_date.strftime("%Y-%m-%d")
 
     def __init__(self, executable_path, service_log_path):
-       webdriver.PhantomJS(executable_path=executable_path, service_log_path=service_log_path)
+        self.__driver = webdriver.PhantomJS(executable_path=executable_path, service_log_path=service_log_path)
 
     def __extract_flights_with_seats(self, json_obj):
 
@@ -91,13 +85,14 @@ class FlightStatsDriver(webdriver.PhantomJS):
 
         return flight_list
 
-    def get_seat_availability(self):
+    def search_seats(self):
         params = urllib.urlencode(self.__params)
+
         request_url = self.__base_url + self.__request_uri +("?%s" % params)
-        self.__logger.info('Requesting URL: %s' % (self.__request_url))
-        self.get(request_url)
+        self.__logger.info('Requesting URL: %s' % (request_url))
+        self.__driver.get(request_url)
         self.__logger.info('Running Javascript to retrieve available routes')
-        result = self.execute_script('return JSON.stringify(availRoutes)')
+        result = self.__driver.execute_script('return JSON.stringify(availRoutes)')
         j = json.loads(unicode(result))
 
         flight_list = self.__extract_flights_with_seats(j)
@@ -105,6 +100,6 @@ class FlightStatsDriver(webdriver.PhantomJS):
         seat_query = SeatQuery(flights=flight_list)
         seat_query.save()
         self.__logger.info('Quiting the Web Driver')
-        self.quit
+        self.__driver.quit
 
         return flight_list
