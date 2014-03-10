@@ -1,9 +1,49 @@
 {% extends "base.html" %}
 
-{%block body%}
-	<ul>
-	{%for item in result %}
-		<li>{{item}}</li>
-	{%endfor%}
-	</ul>
-{%endblock%}
+{% block body %}
+    
+    <div id="chart"></div>
+    <div id="query_set">
+     
+      {% for date_query in result %}
+       <div class="query_info">
+        <table>
+          <tr>
+            <td>Departure Date</td>
+            <td>Arrival Date</td>
+          </tr>
+          <tr>
+            <td> {{date_query[0]}} </td>
+            <td> {{date_query[1]}} </td>
+          </tr>
+        </table>
+        <table class="solutions">
+          <tr>
+            <td> Price </td>
+            <td> Airline </td>
+            <td> Flight No </td>
+            <td> Dept Time </td>
+            <td> Seat Map </td>
+            <td> Airline </td>
+            <td> Flight No </td>
+            <td> Dept Time </td>
+            <td> Seat Map </td>
+          </tr>
+
+          {% for itinerary in date_query[2].itineraries %}
+            <tr>
+              <td> {{itinerary.price}} </td>
+            {% for flight in itinerary.flights %}
+              <td> {{flight.airline}} </td>
+              <td> {{flight.fno}} </td>
+              <td> {{flight.dep_time}} </td>
+              <td> <a href="{{flight.seat_map()}}">SeatGuru</a> </td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% endfor %}
+
+    </div>
+{% endblock %}

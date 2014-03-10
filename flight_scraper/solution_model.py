@@ -3,7 +3,6 @@ import urllib
 
 from mongoengine import *
 
-
 class Seat(EmbeddedDocument):
     cabin_code = StringField()
     fare_class = StringField()
@@ -48,7 +47,7 @@ class Itinerary(EmbeddedDocument):
     def __str__(self):
         return "Itinerary:\n \tPrice=%s\n \t%s" % (self.price, [str(f) for f in self.flights])
 
-    def set_stop(conn_flight):
+    def set_stop(self, conn_flight):
         return None
 
 class Solution(Document):
@@ -64,3 +63,26 @@ class Solution(Document):
 class SeatQuery(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
     flights = ListField(EmbeddedDocumentField(Flight))
+
+class TripMinimumPrice(EmbeddedDocument):
+    dep_city = StringField()
+    arr_city = StringField()
+    dep_time = DateTimeField()
+    arr_time = DateTimeField()
+    price    = StringField()
+    
+    def __str__(self):
+        return 'TripMinimimumPrice: %s->%s\n%s - %s: %s' % (self.dep_city, self.arr_city, self.dep_time, self.arr_time, self.price)
+    
+    def query(self):
+        pass
+
+class CalendarSolution(Document):
+    query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
+    engine = StringField(required=True)
+    origin = StringField(max_length=100, required=True)
+    destination = StringField(max_length=100, required=True)
+    depart_date = DateTimeField()
+    return_date = DateTimeField()
+    min_price = StringField(required=False)
+    trip_prices = ListField(EmbeddedDocumentField(TripMinimumPrice))

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{%block title%} Flight Scrapper {% endblock %}
+{%block title%} Flight Scraper {% endblock %}
 {%block head%}
 {{super()}}
 <script>
@@ -14,6 +14,7 @@
 {% block body %}
 <h1>Flight Scraper</h1>
 
+<h2>Flight Search</h2>
 <div id="query_form">
 	<form action="/flight/query" method="get">
 		<div>Origin:<input type="text" name="origin"></div>
@@ -39,6 +40,21 @@
 	</form>
 </div>
 
+<h2>Flight Search - Calendar</h2>
+<div id="calendar_query_form">
+	<form action="/flight/calendar_query" method="get">
+		<div>Origin:<input type="text" name="origin"></div>
+		<div>Destination:<input type="text" name="dest"></div>
+		<div>Start Date:<input type="text" name="start_date" id="start_date"></div>
+		<div>Until Date:<input type="text" name="until_date" id="until_date"></div>
+		<div>Airlines:<input type="text" name="airlines"></div>
+		<div>Length of stay (e.g., 4 or 4-5):<input type="test" name="length"></div>
+		<div>Maximum Number of Stops:<input type="text" name="max_stops"></div>
+		<div><input type="submit" value="Submit"></div>
+	</form>
+</div>
+
+<h2>Graph Flights</h2>
 <div id="graph_form">
 	<form action="/graph" method="get">
 		<div>Origin:<input type="text" name="origin"></div>
@@ -49,6 +65,7 @@
 	</form>
 </div>
 
+<h2>Find Seats</h2>
 <div id="seat_form">
     <form action="/seat/query" method="get">
 		<div>Origin:<input type="text" name="origin"></div>

@@ -2,7 +2,7 @@ import json
 import logging
 import urllib
 import datetime
-from scrapers.solution_model import Seat, Flight, SeatQuery
+from flight_scraper.solution_model import Seat, Flight, SeatQuery
 from selenium import webdriver
 
 logging.basicConfig(level=logging.INFO)
