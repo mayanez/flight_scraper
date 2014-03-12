@@ -7,6 +7,7 @@ def search_seats(origin, dest, dep_date):
     """ TODO: Refactor """
     #dep_date = dep_date.strftime("%Y-%m-%d")
     #print "Searching %s -> %s : %s" % (origin, dest, dep_date)
+    raise NotImplementedError('search_seats needs to be implemented')
 
 def generate_date_pairs(frequency, weekdays, start_date, until_date):
 
@@ -65,6 +66,7 @@ def get_total_seat_availability(origin, dest, date):
     #                seat_availability[query.query_date] += seat.availability
     #
     #return seat_availability
+    pass
 
 def get_min_price_itinerary(itineraries):
 

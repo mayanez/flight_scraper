@@ -1,0 +1,52 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+{% extends "base.html" %}
+
+  {%block head%}
+  {{super()}}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript">
+      $('.query_set').click(function() {
+
+        $(this).nextUntil('ul.query_set').slideToggle(100);
+      })
+    </script>
+  {% endblock %}
+
+{% block body %}
+    <div id="query_set"> 
+       <div class="query_info">
+        <table>
+          <tr>
+            <td>Query Date</td>
+            <td>Min Price</td>
+          </tr>
+          <tr>
+            <td> {{result.query_date}} </td>
+            <td> {{result.min_price}} </td>
+          </tr>
+        </table>
+        <table class="solutions">
+          <tr>
+            <td> Price </td>
+            <td> Departure Date </td>
+            <td> Arrival Date </td>
+            <td> Query Flights </td>
+          </tr>
+
+          {% for trip in result.trip_prices %}
+          <tr>
+              <td> {{trip.price}} </td>
+              <td> {{trip.dep_time}} </td>
+              <td> {{trip.arr_time}} </td>
+              <td> <a href="{{trip.query()}}">Query Flights</a> </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+{% endblock %}
+
+​

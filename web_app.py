@@ -4,7 +4,7 @@ import mongoengine
 from dateutil.rrule import DAILY
 from datetime import datetime
 from flask import Flask, render_template, send_from_directory, request
-from flight_scraper.flight_scraper import FlightScraper
+from flight_scraper.scraper import FlightScraper
 from flight_scraper.utils.graph import graph_prices
 from flight_scraper.utils.scraper import generate_date_pairs, search_seats
 
@@ -24,7 +24,7 @@ app.config.update(
     DEBUG = True,
 )
 
-flight_scraper = FlightScraper()
+# flight_scraper = FlightScraper()
 
 #----------------------------------------
 # controllers
@@ -59,16 +59,34 @@ def flight_query():
 
     result = list()
 
-    flight_scraper.origin = origin
-    flight_scraper.destination = dest
-
     for d in date_pairs:
-        flight_scraper.depart_date = d[0]
-        flight_scraper.return_date = d[1]
+        flight_scraper  =   FlightScraper(origin, dest, d[0], d[1])
         v = [d[0].isoformat(), d[1].isoformat(), flight_scraper.search_flights()]
         result.append(v)
 
     return render_template('query.html', result=result)
+
+@app.route("/flight/calendar_query", methods=['GET'])
+def calendar_flight_query():
+    origin = request.args.get('origin')
+    dest = request.args.get('dest')
+    start_date = request.args.get('start_date')
+    until_date = request.args.get('until_date')
+    airlines = request.args.get('airlines')
+    day_range = request.args.get('length')
+    max_stops = request.args.get('max_stops')
+
+    if '-' in day_range:
+        split = day_range.split('-')
+        day_range = [int(s) for s in split]
+    else:
+        day_range = [int(day_range), int(day_range)]
+
+    start_date = datetime.strptime(start_date, '%m-%d-%Y')
+    until_date = datetime.strptime(until_date, '%m-%d-%Y')
+
+    flight_scraper  =   FlightScraper(origin, dest, start_date, until_date, airlines=airlines, day_range=day_range, max_stops=max_stops)
+    return render_template('calendar_query.html', result=flight_scraper.search_calendar())
 
 @app.route("/seat/query", methods=['GET'])
 def seat_query():
@@ -93,10 +111,11 @@ def graph_flights():
     dept = datetime.strptime(dept, '%m-%d-%Y')
     ret = datetime.strptime(ret, '%m-%d-%Y')
 
-    flight_scraper.origin = origin
-    flight_scraper.destination = dest
-    flight_scraper.depart_date = dept
-    flight_scraper.return_date = ret
+    flight_scraper  =   FlightScraper(origin, dest, dept, ret)
+#     flight_scraper.origin = origin
+#     flight_scraper.destination = dest
+#     flight_scraper.depart_date = dept
+#     flight_scraper.return_date = ret
 
     solutions = flight_scraper.solutions()
 
