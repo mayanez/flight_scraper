@@ -1,3 +1,4 @@
+import ConfigParser
 import os
 import mongoengine
 
@@ -18,7 +19,10 @@ from flight_scraper.utils.scraper import generate_date_pairs, search_seats
 #----------------------------------------
 app = Flask(__name__)
 
-mongoengine.connect('flight_scraper')
+Config = ConfigParser.ConfigParser()
+Config.read('flight_scraper.cfg')
+
+mongoengine.connect(Config.get("mongodb", "name"))
 
 app.config.update(
     DEBUG = True,
@@ -136,12 +140,39 @@ def graph_2():
     #ret = datetime.strptime(ret, '%m-%d-%Y')
     #
     #return render_template('graph_seats.html', json_obj=graph_seats(origin, dest, dept))
+
+@app.route("/graph_weekly", methods=['GET'])
+def graph_weekly():
+    origin = request.args.get('origin')
+    dest = request.args.get('dest')
+    dept = request.args.get('dept')
+    ret = request.args.get('ret')
+
+    start_date = datetime.strptime("1-1-2013", '%m-%d-%Y')
+    until_date = datetime.strptime("12-31-2013", '%m-%d-%Y')
+    weekdays = map(int, [4,6])
+
+    #Can probably use dateutils parser for this.
+    freq=DAILY
+
+    date_pairs = generate_date_pairs(freq, weekdays, start_date, until_date)
+    result = list()
+
+    for d in date_pairs:
+        flight_scraper.depart_date = d[0]
+        flight_scraper.return_date = d[1]
+        result.append(graph_prices(flight_scraper))
+
+    return render_template('graph_weekly.html', graphs=result, length=len(result))
+
+
+
 #----------------------------------------
 # launch
 #----------------------------------------
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5454))
+    port = int(os.environ.get("PORT", Config.get("webapp", "port")))
     app.run(host='0.0.0.0', port=port)
 
 

@@ -1,4 +1,5 @@
 #!/usr/local/bin/python
+import ConfigParser
 import datetime
 import logging
 from mongoengine import *
@@ -8,12 +9,11 @@ from flight_scraper.utils.scraper import generate_date_pairs
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+Config = ConfigParser.ConfigParser()
+Config.read('scrape_daily.cfg')
 
 def bidirectional_search(origin, dest, until_date):
     """ Sample Script for automation."""
-
-    #Connect to MongoDB
-    connect('flight_scraper')
 
     #Initialize FlightScraper
     flight_scraper = FlightScraper()
@@ -61,11 +61,15 @@ def __get_start_date():
     return start_date
 
 if __name__ == '__main__':
+    #Connect to MongoDB
+    connect(Config.get("mongodb", "name"))
+
     origin = "SEA"
     dest = "PDX"
+
     try:
         logger.info("Started at %s" % (datetime.datetime.utcnow()))
-        bidirectional_search(origin, dest, datetime.datetime.strptime("1-1-2014", "%m-%d-%Y"))
+        bidirectional_search(origin, dest, datetime.datetime.strptime(Config.get("dates", "end"), "%m-%d-%Y"))
     except Exception, e:
         logger.error(e)
         pass
