@@ -26,7 +26,7 @@ if Config.read('flight_scraper.cfg')==[]:
 
 try:
     host_string=Config.get("mongodb", "host")
-    mongoengine.connect(Config.get("mongodb", "name"),host=hstring)
+    mongoengine.connect(Config.get("mongodb", "name"),host=host_string)
 except ConfigParser.NoOptionError:
     mongoengine.connect(Config.get("mongodb", "name"))
 
