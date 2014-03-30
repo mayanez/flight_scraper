@@ -20,9 +20,15 @@ from flight_scraper.utils.scraper import generate_date_pairs, search_seats
 app = Flask(__name__)
 
 Config = ConfigParser.ConfigParser()
-Config.read('flight_scraper.cfg')
+if Config.read('flight_scraper.cfg')==[]:
+    print "Please copy flight_scraper.cfg.example to flight_scraper.cfg"
+    raise Exception('Could not read config file')
 
-mongoengine.connect(Config.get("mongodb", "name"))
+try:
+    host_string=Config.get("mongodb", "host")
+    mongoengine.connect(Config.get("mongodb", "name"),host=hstring)
+except ConfigParser.NoOptionError:
+    mongoengine.connect(Config.get("mongodb", "name"))
 
 app.config.update(
     DEBUG = True,
