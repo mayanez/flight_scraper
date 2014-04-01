@@ -1,5 +1,6 @@
 [mongodb]
 name = flight_scraper
+#host = mongodb://localhost/dbname
 
 [email]
 username = user

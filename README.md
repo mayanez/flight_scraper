@@ -8,6 +8,10 @@ Right now I use ITA Matrix for airfare search & flightstats for seat availabilit
 The ITA Matrix Airfare Search is a great tool so I suggest you go check it out here: http://matrix.itasoftware.com/
 Also checkout Flightstats (https://flightstats.com) its a great site for finding information about tracking. I use it to monitor whether flights are on-time or not.
 
+#Installation#
+(build steps)
+Copy flight_scraper.cfg.example to flight_scraper.cfg
+
 #Dependencies#
 * Requests (http://docs.python-requests.org/)
 * MongoDB (http://www.mongodb.org/)
