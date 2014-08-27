@@ -1,6 +1,6 @@
 from flight_scraper.solution_model import Solution, CalendarSolution, SeatQuery
 from engines.ita_matrix.driver import ItaMatrixDriver, ItaMatrixDriverMulti, CalendarItaMatrixDriver, Slice
-from datetime import date
+from datetime import date, timedelta
 
 class FlightScraper(object):
     
@@ -80,7 +80,7 @@ class FlightScraperMulti(object):
         return self._ita_driver.build_solutions()
 
 def scrape_return():    
-    scraper =   FlightScraper('SFO', 'SEA', date(2014, 10, 20), date(2014, 11, 7))
+    scraper =   FlightScraper('SFO', 'SEA', date.today() + timedelta(days=30), date.today() + timedelta(days=47))
     flights =   scraper.search_flights()
     
     a = 1
@@ -88,8 +88,9 @@ def scrape_return():
 def scrape_multi():    
     from datetime import date
     scraper =   FlightScraperMulti()
-    scraper.add_flight('SFO', 'SEA', date(2014, 10, 20))
-    scraper.add_flight('SEA', 'SFO', date(2014, 11, 7))
+    scraper.add_flight('SFO', 'SEA', date.today() + timedelta(days=30))
+    scraper.add_flight('SEA', 'PHX', date.today() + timedelta(days=40))
+    scraper.add_flight('PHX', 'SFO', date.today() + timedelta(days=47))
     flights =   scraper.search_flights()
     
     a = 1
