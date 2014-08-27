@@ -27,7 +27,7 @@ class Flight(Document):
         return self.__str__
 
     def __eq__(self, other):
-        return ((self.airline == other.airline) and (self.fno == other.fno))
+        return ((self.airline == other.airline) and (self.fno == other.fno) and (self.dep_time == other.dep_time))
 
     def __hash__(self):
         return hash((self.airline, self.fno))
