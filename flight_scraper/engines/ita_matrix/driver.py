@@ -89,14 +89,13 @@ class AbstractItaMatrixDriver(object):
         raise NotImplementedError('Subclasses must implement _parse_solution')  
     
 class Slice(object):
-    def __init__(self, origin, destination, depart_date, max_stops=None, airlines=None):
+    def __init__(self, origin, destination, depart_date, airlines=None):
         self._json_request = json.loads('{"origins":["PDX"],"originPreferCity":false,"commandLine":"airlines AA DL AS UA",\
                                "destinations":["SEA"],"destinationPreferCity":false,"date":"2013-06-07","isArrivalDate":false,\
                                 "dateModifier":{"minus":0,"plus":0}}')
         self.origin = origin
         self.destination = destination
         self.depart_date = depart_date
-        self.max_stops = max_stops
         self.airlines = airlines
 
     @property
@@ -148,8 +147,8 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
     def add_slice(self, slice):
         self.slices.append(slice)
         
-    def add_slice_params(self, origin, destination, depart_date, max_stops=None, airlines=None):
-        self.slices.append(Slice(origin, destination, depart_date, max_stops, airlines))
+    def add_slice_params(self, origin, destination, depart_date, airlines=None):
+        self.slices.append(Slice(origin, destination, depart_date, airlines))
         
     # TODO: These isn't needed anymore. It's just a hack to get the _parse_response method working.
     @property
@@ -158,7 +157,7 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
     # TODO: These isn't needed anymore. It's just a hack to get the _parse_response method working.
     @property
     def return_date(self):
-        return datetime.datetime.strptime(self._json_request['slices'][1]['date'], "%Y-%m-%d")
+        return datetime.datetime.strptime(self._json_request['slices'][-1]['date'], "%Y-%m-%d")
     
     @property
     def max_stops(self):

@@ -1,5 +1,6 @@
 from flight_scraper.solution_model import Solution, CalendarSolution, SeatQuery
 from engines.ita_matrix.driver import ItaMatrixDriver, ItaMatrixDriverMulti, CalendarItaMatrixDriver, Slice
+from datetime import date
 
 class FlightScraper(object):
     
@@ -15,16 +16,6 @@ class FlightScraper(object):
 
     def search_flights(self):
         ita_driver = ItaMatrixDriver(self.origin, self.destination, self.depart_date, self.return_date, self.max_stops, self.airlines)
-        return ita_driver.build_solutions()
-    
-    def search_flights_multi(self):
-        ita_driver = ItaMatrixDriverMulti(self.max_stops)
-        ita_driver.add_slice_params(self.origin, self.destination, self.depart_date, self.max_stops, self.airlines)
-        ita_driver.add_slice_params(self.destination, self.origin, self.return_date, self.max_stops, self.airlines)
-        
-        #ita_driver.combine_slices()
-        #return ita_driver.build_request_url()
-        
         return ita_driver.build_solutions()
     
     def search_calendar(self):
@@ -69,7 +60,40 @@ class FlightScraper(object):
 
     def return_seats(self):
         return self.__get_seats(self.__return_date)
+    
+class FlightScraperMulti(object):
+    
+    def __init__(self, max_stops=None):
+        #self.origin         =   None
+        #self.destination    =   None
+        #self.depart_date    =   None
+        #self.return_date    =   None
+        #self.day_range      =   None
+        self.max_stops      =   max_stops
+        #self.airlines       =   None
+        self._ita_driver = ItaMatrixDriverMulti(self.max_stops)
+        
+    def add_flight(self, origin, destination, depart_date, airlines=None):
+        self._ita_driver.add_slice_params(origin, destination, depart_date, airlines)
+        
+    def search_flights(self):
+        return self._ita_driver.build_solutions()
 
+def scrape_return():    
+    scraper =   FlightScraper('SFO', 'SEA', date(2014, 10, 20), date(2014, 11, 7))
+    flights =   scraper.search_flights()
+    
+    a = 1
+    
+def scrape_multi():    
+    from datetime import date
+    scraper =   FlightScraperMulti()
+    scraper.add_flight('SFO', 'SEA', date(2014, 10, 20))
+    scraper.add_flight('SEA', 'SFO', date(2014, 11, 7))
+    flights =   scraper.search_flights()
+    
+    a = 1
+    
 if __name__=="__main__":
     import ConfigParser
     import mongoengine
@@ -84,10 +108,5 @@ if __name__=="__main__":
         mongoengine.connect(Config.get("mongodb", "name"),host=host_string)
     except ConfigParser.NoOptionError:
         mongoengine.connect(Config.get("mongodb", "name"))
-    
-    from datetime import date
-    scraper =   FlightScraper('VRN', 'SEA', date(2014, 10, 20), date(2014, 11, 7))
-    #flights =   scraper.search_flights()
-    flights =   scraper.search_flights_multi()
-    
-    a = 1
+        
+    scrape_multi()
