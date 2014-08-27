@@ -88,7 +88,7 @@ def scrape_return():
 def scrape_multi():    
     from datetime import date
     scraper =   FlightScraperMulti()
-    scraper.add_flight('SFO', 'SEA', date.today() + timedelta(days=30))
+    scraper.add_flight('SFO', 'SEA', date.today() + timedelta(days=30), airlines="AA DL AC")
     scraper.add_flight('SEA', 'PHX', date.today() + timedelta(days=40))
     scraper.add_flight('PHX', 'SFO', date.today() + timedelta(days=47))
     flights =   scraper.search_flights()

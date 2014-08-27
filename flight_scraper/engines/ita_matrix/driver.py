@@ -128,7 +128,10 @@ class Slice(object):
     
     @airlines.setter
     def airlines(self, airlines):
-        self._json_request['routeLanguage'] = airlines
+        if airlines is None:
+            self._json_request['commandLine'] = ""
+        else:
+            self._json_request['commandLine'] = "airlines %s" % airlines
         
         
 class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
@@ -249,8 +252,11 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
     
     @airlines.setter
     def airlines(self, airlines):
-        self._json_request['slices'][0]['routeLanguage'] = airlines
-        self._json_request['slices'][1]['routeLanguage'] = airlines
+        if airlines is None:
+            self._json_request['commandLine'] = ""
+        else:
+            self._json_request['slices'][0]['commandLine'] = "airlines %s" % airlines
+            self._json_request['slices'][1]['commandLine'] = "airlines %s" % airlines
 
     def _parse_response(self, response_json):
         """
