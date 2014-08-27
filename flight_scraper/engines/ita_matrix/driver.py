@@ -144,6 +144,7 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
             dep_city = sol['itinerary']['slices'][0]['origin']['code']
  
             origin_flight = Flight(airline=origin_flight_airline, fno=origin_flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
+            origin_flight.save()
  
             return_flight_airline = sol['itinerary']['slices'][1]['flights'][0][:2]
             return_flight_number = int(sol['itinerary']['slices'][1]['flights'][0][2:])
@@ -153,11 +154,13 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
             dep_city = sol['itinerary']['slices'][1]['origin']['code']
  
             return_flight = Flight(airline=return_flight_airline, fno=return_flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
+            return_flight.save()
  
             flight_list = [origin_flight, return_flight]
             price = sol['displayTotal']
             itinerary = Itinerary(flights=flight_list, price=price)
             solution.itineraries.append(itinerary)
+            solution = Solution(engine=self.engine, origin=self.origin, destination=self.destination, depart_date=self.depart_date, return_date=self.return_date)
  
         solution.save()
  
