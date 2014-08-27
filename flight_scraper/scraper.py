@@ -1,11 +1,10 @@
 from flight_scraper.solution_model import Solution, CalendarSolution, SeatQuery
-from engines.ita_matrix.driver import ItaMatrixDriver, CalendarItaMatrixDriver
-
+from engines.ita_matrix.driver import ItaMatrixDriver, ItaMatrixDriverMulti, CalendarItaMatrixDriver, Slice
 
 class FlightScraper(object):
     
     def __init__(self, origin, destination, depart_date, return_date, 
-                 max_stops=0, day_range=None, airlines=None):
+                 max_stops=None, day_range=None, airlines=None):
         self.origin         =   origin
         self.destination    =   destination
         self.depart_date    =   depart_date
@@ -15,7 +14,17 @@ class FlightScraper(object):
         self.airlines       =   airlines
 
     def search_flights(self):
-        ita_driver = ItaMatrixDriver(self.origin, self.destination, self.depart_date, self.return_date)
+        ita_driver = ItaMatrixDriver(self.origin, self.destination, self.depart_date, self.return_date, self.max_stops, self.airlines)
+        return ita_driver.build_solutions()
+    
+    def search_flights_multi(self):
+        ita_driver = ItaMatrixDriverMulti(self.max_stops)
+        ita_driver.add_slice_params(self.origin, self.destination, self.depart_date, self.max_stops, self.airlines)
+        ita_driver.add_slice_params(self.destination, self.origin, self.return_date, self.max_stops, self.airlines)
+        
+        #ita_driver.combine_slices()
+        #return ita_driver.build_request_url()
+        
         return ita_driver.build_solutions()
     
     def search_calendar(self):
@@ -62,9 +71,23 @@ class FlightScraper(object):
         return self.__get_seats(self.__return_date)
 
 if __name__=="__main__":
+    import ConfigParser
+    import mongoengine
+    
+    Config = ConfigParser.ConfigParser()
+    if Config.read('flight_scraper.cfg')==[]:
+        print "Please copy flight_scraper.cfg.example to flight_scraper.cfg"
+        raise Exception('Could not read config file')
+    
+    try:
+        host_string=Config.get("mongodb", "host")
+        mongoengine.connect(Config.get("mongodb", "name"),host=host_string)
+    except ConfigParser.NoOptionError:
+        mongoengine.connect(Config.get("mongodb", "name"))
     
     from datetime import date
-    scraper =   FlightScraper('BWI', 'MSP', date(2014, 6, 1), date(2014, 6, 6))
-    flights =   scraper.search_flights()
+    scraper =   FlightScraper('VRN', 'SEA', date(2014, 10, 20), date(2014, 11, 7))
+    #flights =   scraper.search_flights()
+    flights =   scraper.search_flights_multi()
     
     a = 1
