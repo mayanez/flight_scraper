@@ -11,7 +11,7 @@ class Seat(EmbeddedDocument):
     def __str__(self):
         return "cabin: %s fare: %s avail: %s" % (self.cabin_code, self.fare_class, self.availability)
 
-class Flight(Document):
+class Flight(EmbeddedDocument):
     airline = StringField()
     fno = IntField()
     dep_city = StringField()
@@ -27,7 +27,7 @@ class Flight(Document):
         return self.__str__
 
     def __eq__(self, other):
-        return ((self.airline == other.airline) and (self.fno == other.fno) and (self.dep_time == other.dep_time))
+        return ((self.airline == other.airline) and (self.fno == other.fno))
 
     def __hash__(self):
         return hash((self.airline, self.fno))
@@ -41,7 +41,7 @@ class Flight(Document):
         return url
 
 class Itinerary(EmbeddedDocument):
-    flights = ListField(ReferenceField(Flight))
+    flights = ListField(EmbeddedDocumentField(Flight))
     price = StringField()
 
     def __str__(self):
@@ -59,12 +59,10 @@ class Solution(Document):
     return_date = DateTimeField()
     min_price = StringField(required=False)
     itineraries = ListField(EmbeddedDocumentField(Itinerary))
-    
-    meta = {'allow_inheritance': True}
 
 class SeatQuery(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
-    flights = ListField(ReferenceField(Flight))
+    flights = ListField(EmbeddedDocumentField(Flight))
 
 class TripMinimumPrice(EmbeddedDocument):
     dep_city = StringField()

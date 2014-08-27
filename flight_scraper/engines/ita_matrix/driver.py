@@ -179,7 +179,6 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
         self.combine_slices()
         super(ItaMatrixDriverMulti, self).build_solutions()
            
-    # Duplicated verbatim from ItaMatrixDriver. For now, only handles 2 slices
     def _parse_response(self, response_json):
         """
             Builds search solution. Adds to MongoDB and returns the Solution object.
@@ -189,31 +188,23 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
         solution.min_price = response_json['result']['solutionList']['minPrice']
  
         for sol in response_json['result']['solutionList']['solutions']:
-            origin_flight_airline = sol['itinerary']['slices'][0]['flights'][0][:2]
-            origin_flight_number = int(sol['itinerary']['slices'][0]['flights'][0][2:])
-            dep_time = datetime.datetime.strptime(sol['itinerary']['slices'][0]['departure'][:-6], "%Y-%m-%dT%H:%M")
-            arr_time = datetime.datetime.strptime(sol['itinerary']['slices'][0]['arrival'][:-6], "%Y-%m-%dT%H:%M")
-            arr_city = sol['itinerary']['slices'][0]['destination']['code']
-            dep_city = sol['itinerary']['slices'][0]['origin']['code']
+            flight_list = list()
+            for slice in sol['itinerary']['slices']:
+                flight_airline = slice['flights'][0][:2]
+                flight_number = int(slice['flights'][0][2:])
+                dep_time = datetime.datetime.strptime(slice['departure'][:-6], "%Y-%m-%dT%H:%M")
+                arr_time = datetime.datetime.strptime(slice['arrival'][:-6], "%Y-%m-%dT%H:%M")
+                arr_city = slice['destination']['code']
+                dep_city = slice['origin']['code']
+     
+                slice_flight = Flight(airline=flight_airline, fno=flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
+                #slice_flight.save()
+                
+                flight_list.append(slice_flight)
  
-            origin_flight = Flight(airline=origin_flight_airline, fno=origin_flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
-            origin_flight.save()
- 
-            return_flight_airline = sol['itinerary']['slices'][1]['flights'][0][:2]
-            return_flight_number = int(sol['itinerary']['slices'][1]['flights'][0][2:])
-            dep_time = datetime.datetime.strptime(sol['itinerary']['slices'][1]['departure'][:-6], "%Y-%m-%dT%H:%M")
-            arr_time = datetime.datetime.strptime(sol['itinerary']['slices'][1]['arrival'][:-6], "%Y-%m-%dT%H:%M")
-            arr_city = sol['itinerary']['slices'][1]['destination']['code']
-            dep_city = sol['itinerary']['slices'][1]['origin']['code']
- 
-            return_flight = Flight(airline=return_flight_airline, fno=return_flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
-            return_flight.save()
- 
-            flight_list = [origin_flight, return_flight]
             price = sol['displayTotal']
             itinerary = Itinerary(flights=flight_list, price=price)
             solution.itineraries.append(itinerary)
-            solution = Solution(engine=self.engine, origin=self.origin, destination=self.destination, depart_date=self.depart_date, return_date=self.return_date)
  
         solution.save()
  
@@ -279,7 +270,7 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
             dep_city = sol['itinerary']['slices'][0]['origin']['code']
  
             origin_flight = Flight(airline=origin_flight_airline, fno=origin_flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
-            origin_flight.save()
+            #origin_flight.save()
  
             return_flight_airline = sol['itinerary']['slices'][1]['flights'][0][:2]
             return_flight_number = int(sol['itinerary']['slices'][1]['flights'][0][2:])
@@ -289,13 +280,12 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
             dep_city = sol['itinerary']['slices'][1]['origin']['code']
  
             return_flight = Flight(airline=return_flight_airline, fno=return_flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
-            return_flight.save()
+            #return_flight.save()
  
             flight_list = [origin_flight, return_flight]
             price = sol['displayTotal']
             itinerary = Itinerary(flights=flight_list, price=price)
             solution.itineraries.append(itinerary)
-            solution = Solution(engine=self.engine, origin=self.origin, destination=self.destination, depart_date=self.depart_date, return_date=self.return_date)
  
         solution.save()
  
