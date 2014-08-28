@@ -1,5 +1,5 @@
-from flight_scraper.solution_model import Solution, ItaSolution, CalendarSolution, SeatQuery
-from engines.ita_matrix.driver import ItaMatrixDriver, ItaMatrixDriverMulti, CalendarItaMatrixDriver, Slice
+from flight_scraper.solution_model import Solution, ItaSolution, CalendarSolution, SeatQuery, Itinerary, ItaItinerary
+from engines.ita_matrix.driver import ItaMatrixDriver, ItaMatrixDriverMulti, CalendarItaMatrixDriver, Slice, ViewItineraryDriver
 from datetime import date, timedelta
 
 class FlightScraper(object):
@@ -94,6 +94,13 @@ def scrape_multi():
     solution =  scraper.search_flights()
     
     return solution
+
+def scrape_itinerary(solution, itinerary):
+    ita_driver = ViewItineraryDriver(itinerary, solution.session, solution.solution_set)
+    it_details = ita_driver.build_itinerary_breakdown()
+    
+    # Update in the solution
+    return it_details
     
 if __name__=="__main__":
     import ConfigParser
@@ -111,3 +118,7 @@ if __name__=="__main__":
         mongoengine.connect(Config.get("mongodb", "name"))
         
     solution = scrape_multi()
+    #solution = ItaSolution.objects().limit(1).next()
+    itinerary = solution.itineraries[-1]
+    
+    it_details = scrape_itinerary(solution, itinerary)

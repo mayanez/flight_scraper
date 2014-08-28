@@ -4,7 +4,8 @@ import datetime
 import re
 import requests
 from abc import abstractmethod
-from flight_scraper.solution_model import ItaSolution, Flight, Itinerary, CalendarSolution, TripMinimumPrice
+from flight_scraper.solution_model import Flight, Itinerary, CalendarSolution, TripMinimumPrice
+from flight_scraper.solution_model import ItaSolution, ItaItinerary, PriceComponent
 
 logging.basicConfig(level=logging.INFO)
 
@@ -197,11 +198,12 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
         
     def build_solutions(self):
         self.combine_slices()
-        super(ItaMatrixDriverMulti, self).build_solutions()
+        return super(ItaMatrixDriverMulti, self).build_solutions()
            
     def _parse_solutions(self, response_json):
         """
             Builds search solution. Adds to MongoDB and returns the Solution object.
+            FIXME: This method currently assumes direct point-to-point flights.
         """
         solution = ItaSolution(engine=self.engine, origin=self.slices[0].origin, destination=self.slices[0].destination, depart_date=self.depart_date, return_date=self.return_date)
         solution.min_price = response_json['result']['solutionList']['minPrice']
@@ -225,7 +227,7 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
                 flight_list.append(slice_flight)
  
             price = sol['displayTotal']
-            itinerary = Itinerary(flights=flight_list, price=price, ext_id=itinerary_id)
+            itinerary = ItaItinerary(flights=flight_list, price=price, ext_id=itinerary_id)
             solution.itineraries.append(itinerary)
  
         solution.save()
@@ -281,6 +283,7 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
     def _parse_solutions(self, response_json):
         """
             Builds search solution. Adds to MongoDB and returns the Solution object.
+            FIXME: This method currently assumes direct point-to-point flights.
         """
         solution = ItaSolution(engine=self.engine, origin=self.origin, destination=self.destination, depart_date=self.depart_date, return_date=self.return_date)
         solution.min_price = response_json['result']['solutionList']['minPrice']
@@ -311,7 +314,7 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
  
             flight_list = [origin_flight, return_flight]
             price = sol['displayTotal']
-            itinerary = Itinerary(flights=flight_list, price=price, ext_id=itinerary_id)
+            itinerary = ItaItinerary(flights=flight_list, price=price, ext_id=itinerary_id)
             solution.itineraries.append(itinerary)
  
         solution.save()
@@ -382,4 +385,121 @@ class CalendarItaMatrixDriver(AbstractItaMatrixDriver):
         solution.save()
         
         return solution
+
+class ViewItineraryDriver(object):
+
+    _logger = logging.getLogger(__name__)
+    engine = "ITA Matrix"
+    _base_url = "http://matrix.itasoftware.com"
+    _request_uri = "/xhr/shop/summarize?"
+    _http_header = {
+        'Host': 'matrix.itasoftware.com',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Cache-Control': 'no-cache',
+        'Content-Length': '0'
+    }
     
+    _base_request = "solutionSet="\
+                    "&session="\
+                    "&summarizers=currencyNotice%2CbookingDetails"\
+                    "&format=JSON"\
+                    "&inputs="
+                    
+    _json_request = json.loads('{"slices":[{"origins":["VRN"],"originPreferCity":false,"commandLine":"airlines AA BA DL",\
+                "destinations":["SEA","YVR"],"destinationPreferCity":false,"date":"2014-10-20","isArrivalDate":false,\
+                "dateModifier":{"minus":0,"plus":0}},{"origins":["YVR","SEA"],"originPreferCity":false,"routeLanguage":"X+",\
+                "destinations":["VRN"],"destinationPreferCity":false,"date":"2014-11-07","isArrivalDate":false,\
+                "dateModifier":{"minus":0,"plus":0}}],\
+                "pax":{"adults":1,"children":0,"seniors":0,"infantsInSeat":0,"youth":0,"infantsInLap":0},\
+                "cabin":"COACH","changeOfAirport":true,"checkAvailability":true,"currency":"USD","salesCity":"MIL",\
+                "page":{"size":30},"sorts":"default","solution":"0EI4mYoNuxZ6UnAPrvqq47B/Jpt7IVb5Qv8NBWx8cO9e4K004"}')
+    
+    def __init__(self, itinerary, session, solutionSet):
+        self.slices = list()
+        self.itinerary = itinerary
+        self.session = session
+        self.solutionSet = solutionSet
+        pass
+    
+    @property
+    def session(self):
+        return self._session
+    @session.setter
+    def session(self, session):
+        self._session = session
+        self._base_request = re.sub('session=[^&]*', "session=%s" % session, self._base_request)
+        
+    @property
+    def solutionSet(self):
+        return self._solutionSet
+    @solutionSet.setter
+    def solutionSet(self, solutionSet):
+        self._solutionSet = solutionSet
+        self._base_request = re.sub('solutionSet=[^&]*', "solutionSet=%s" % solutionSet, self._base_request)
+        
+    @property
+    def itinerary(self):
+        return self._itinerary
+    @itinerary.setter
+    def itinerary(self, itinerary):
+        self._itinerary = itinerary
+        self.itinerary_to_slices(itinerary)
+        
+    def itinerary_to_slices(self, itinerary):
+        for flight in itinerary.flights:
+            self.slices.append(Slice(flight.dep_city, flight.arr_city, flight.dep_time, flight.airline))
+    
+    def _build_session_handle(self):
+        self._json_request['solution'] = "%s/%s" % (self.solutionSet, self.itinerary.ext_id)
+            
+    def build_request_url(self):
+        self._build_session_handle()
+        data = self._base_request + json.dumps(self._json_request)
+        request_url = self._base_url + self._request_uri + data
+        print 'Request URL: %s' % (request_url)
+        return request_url
+            
+    def build_itinerary_breakdown(self):    
+        request_url = self.build_request_url()
+
+        self._logger.info('Making request to ITA Matrix: %s', (request_url))
+        response = requests.post(request_url, headers=self._http_header)
+        response_json = json.loads(response.text[4:])
+
+        print response_json
+        self._logger.info('Creating objects to insert to database')
+        return self._parse_breakdown(response_json)
+    
+    def _parse_breakdown(self, response_json):  
+        print ""
+        print ""
+        print response_json['result']['bookingDetails']['tickets'][0]['pricings'][0]['ext']['taxTotals']
+        
+        # Base fares
+        for base_fare in response_json['result']['bookingDetails']['tickets'][0]['pricings'][0]['ext']['fares'][0]:
+            rate_code = base_fare['code']
+            price = base_fare['displayAdjustedPrice']
+            key = base_fare['key']
+            ori_city = base_fare['originCity']
+            arr_city = base_fare['destinationCity']
+            
+            pc = PriceComponent(rate_code=rate_code, price=price, key=key, description="%s-%s" % (ori_city, arr_city))
+            self.itinerary.base_fares.append(pc)
+        
+        # Taxes
+        for tax_item in response_json['result']['bookingDetails']['tickets'][0]['pricings'][0]['ext']['taxTotals']:
+            # {'code': 'US', 'tax': {'name': 'US Transportation Tax', 'key': '0/0'}, 'totalDisplayPrice': 'USD44.81'},
+            rate_code = tax_item['code']
+            price = tax_item['totalDisplayPrice']
+            key = tax_item['tax']['key']
+            description = tax_item['tax']['name']
+            
+            pc = PriceComponent(rate_code=rate_code, price=price, key=key, description=description)
+            self.itinerary.taxes.append(pc)
+            
+        total_price = response_json['result']['bookingDetails']['tickets'][0]['displayPrice']
+        distance = response_json['result']['bookingDetails']['itinerary']['distance']['value']
+        
+        self.itinerary.distance = distance
+            
+        return self.itinerary

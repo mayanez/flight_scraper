@@ -39,6 +39,7 @@ class Flight(EmbeddedDocument):
                      'date':self.dep_time.strftime('%m-%d-%Y') }
         url = url + urllib.urlencode(params)
         return url
+    
 
 class Itinerary(EmbeddedDocument):
     flights = ListField(EmbeddedDocumentField(Flight))
@@ -50,6 +51,20 @@ class Itinerary(EmbeddedDocument):
 
     def set_stop(self, conn_flight):
         return None
+    
+    meta = {'allow_inheritance': True}
+    
+class PriceComponent(EmbeddedDocument):
+    rate_code = StringField(required=True)
+    price = StringField(required=True)
+    key = StringField()
+    description = StringField()
+
+class ItaItinerary(Itinerary):
+    #flight_details = ListField(EmbeddedDocumentField(FlightDetails))
+    taxes = ListField(EmbeddedDocumentField(PriceComponent))
+    base_fares = ListField(EmbeddedDocumentField(PriceComponent))
+    distance = StringField()
 
 class Solution(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
