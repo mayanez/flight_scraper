@@ -1,6 +1,7 @@
 import json
 import logging
 import datetime
+import re
 import requests
 from abc import abstractmethod
 from flight_scraper.solution_model import Solution, Flight, Itinerary, CalendarSolution, TripMinimumPrice
@@ -72,20 +73,19 @@ class AbstractItaMatrixDriver(object):
         print 'Request URl: %s' % (request_url)
         return request_url
 
-    def build_solutions(self):    
+    def build_solution(self):    
         request_url = self.build_request_url()
 
         self._logger.info('Making request to ITA Matrix: %s', (request_url))
-        print 'Making request to ITA Matrix: %s' % (request_url)
         response = requests.post(request_url, headers=self._http_header)
         response_json = json.loads(response.text[4:])
 
         print response_json
         self._logger.info('Creating objects to insert to database')
-        return self._parse_response(response_json)
+        return self._parse_solution(response_json)
         
     @abstractmethod
-    def _parse_response(self):
+    def _parse_solution(self):
         raise NotImplementedError('Subclasses must implement _parse_solution')  
     
 class Slice(object):
@@ -96,6 +96,7 @@ class Slice(object):
         self.origin = origin
         self.destination = destination
         self.depart_date = depart_date
+        self._airlines = None
         self.airlines = airlines
 
     @property
@@ -124,14 +125,30 @@ class Slice(object):
     
     @property
     def airlines(self):
-        return self._json_request['routeLanguage']
+        return ' '.join(self._airlines)
+        
+        # return self._airlines
+        # return self._json_request['commandLine']
     
     @airlines.setter
     def airlines(self, airlines):
         if airlines is None:
+            self._airlines = list()
+            return
+        
+        self._airlines = [x.strip() for x in re.split('[ ,]', airlines) if x.strip()]
+        
+        if airlines is None:
             self._json_request['commandLine'] = ""
         else:
             self._json_request['commandLine'] = "airlines %s" % airlines
+            
+    def _build_command_line(self):
+        route_lang = ""
+        if (len(self._airlines) > 0):
+            route_lang = "%s airlines %s" % (route_lang, self.airlines)
+            
+        self._json_request['commandLine'] = route_lang
         
         
 class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
@@ -153,11 +170,11 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
     def add_slice_params(self, origin, destination, depart_date, airlines=None):
         self.slices.append(Slice(origin, destination, depart_date, airlines))
         
-    # TODO: These isn't needed anymore. It's just a hack to get the _parse_response method working.
+    # TODO: These isn't needed anymore. It's just a hack to get the _parse_solution method working.
     @property
     def depart_date(self):
         return datetime.datetime.strptime(self._json_request['slices'][0]['date'], "%Y-%m-%d")
-    # TODO: These isn't needed anymore. It's just a hack to get the _parse_response method working.
+    # TODO: These isn't needed anymore. It's just a hack to get the _parse_solution method working.
     @property
     def return_date(self):
         return datetime.datetime.strptime(self._json_request['slices'][-1]['date'], "%Y-%m-%d")
@@ -175,17 +192,17 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
     def combine_slices(self):
         self._json_request['slices'] = []
         for slice in self.slices:
+            slice._build_command_line()
             self._json_request['slices'].append(slice._json_request)
         
-    def build_solutions(self):
+    def build_solution(self):
         self.combine_slices()
-        super(ItaMatrixDriverMulti, self).build_solutions()
+        super(ItaMatrixDriverMulti, self).build_solution()
            
-    def _parse_response(self, response_json):
+    def _parse_solution(self, response_json):
         """
             Builds search solution. Adds to MongoDB and returns the Solution object.
         """
-        self._logger.info('Creating objects to insert to database')
         solution = Solution(engine=self.engine, origin=self.slices[0].origin, destination=self.slices[0].destination, depart_date=self.depart_date, return_date=self.return_date)
         solution.min_price = response_json['result']['solutionList']['minPrice']
  
@@ -248,7 +265,7 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
         
     @property
     def airlines(self):
-        return self._json_request['slices'][0]['routeLanguage']
+        return self._json_request['slices'][0]['commandLine']
     
     @airlines.setter
     def airlines(self, airlines):
@@ -258,11 +275,10 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
             self._json_request['slices'][0]['commandLine'] = "airlines %s" % airlines
             self._json_request['slices'][1]['commandLine'] = "airlines %s" % airlines
 
-    def _parse_response(self, response_json):
+    def _parse_solution(self, response_json):
         """
             Builds search solution. Adds to MongoDB and returns the Solution object.
         """
-        self._logger.info('Creating objects to insert to database')
         solution = Solution(engine=self.engine, origin=self.origin, destination=self.destination, depart_date=self.depart_date, return_date=self.return_date)
         solution.min_price = response_json['result']['solutionList']['minPrice']
  
@@ -335,7 +351,7 @@ class CalendarItaMatrixDriver(AbstractItaMatrixDriver):
     def day_range(self, days):
         self._json_request['layover'] = {'min': days[0], 'max': days[1]}
         
-    def _parse_response(self, response_json):         
+    def _parse_solution(self, response_json):         
         self._logger.info('Creating objects to insert to database')
         solution = CalendarSolution(engine=self.engine, origin=self.origin, destination=self.destination, 
                                     depart_date=self.depart_date, return_date=self.return_date)
