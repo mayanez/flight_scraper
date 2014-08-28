@@ -43,6 +43,7 @@ class Flight(EmbeddedDocument):
 class Itinerary(EmbeddedDocument):
     flights = ListField(EmbeddedDocumentField(Flight))
     price = StringField()
+    ext_id = StringField(required=False)
 
     def __str__(self):
         return "Itinerary:\n \tPrice=%s\n \t%s" % (self.price, [str(f) for f in self.flights])
@@ -59,6 +60,13 @@ class Solution(Document):
     return_date = DateTimeField()
     min_price = StringField(required=False)
     itineraries = ListField(EmbeddedDocumentField(Itinerary))
+    session = StringField(required=False)
+    
+    meta = {'allow_inheritance': True}
+    
+class ItaSolution(Solution):
+    session      = StringField(required=True)
+    solution_set = StringField(required=True)
 
 class SeatQuery(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)

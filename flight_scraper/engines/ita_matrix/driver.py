@@ -205,8 +205,11 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
         """
         solution = ItaSolution(engine=self.engine, origin=self.slices[0].origin, destination=self.slices[0].destination, depart_date=self.depart_date, return_date=self.return_date)
         solution.min_price = response_json['result']['solutionList']['minPrice']
+        solution.session = response_json['result']['session']
+        solution.solution_set = response_json['result']['solutionSet']
  
         for sol in response_json['result']['solutionList']['solutions']:
+            itinerary_id = sol['id']
             flight_list = list()
             for slice in sol['itinerary']['slices']:
                 flight_airline = slice['flights'][0][:2]
@@ -222,7 +225,7 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
                 flight_list.append(slice_flight)
  
             price = sol['displayTotal']
-            itinerary = Itinerary(flights=flight_list, price=price)
+            itinerary = Itinerary(flights=flight_list, price=price, ext_id=itinerary_id)
             solution.itineraries.append(itinerary)
  
         solution.save()
@@ -281,8 +284,11 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
         """
         solution = ItaSolution(engine=self.engine, origin=self.origin, destination=self.destination, depart_date=self.depart_date, return_date=self.return_date)
         solution.min_price = response_json['result']['solutionList']['minPrice']
+        solution.session = response_json['result']['session']
+        solution.solution_set = response_json['result']['solutionSet']
  
         for sol in response_json['result']['solutionList']['solutions']:
+            itinerary_id = sol['id']
             origin_flight_airline = sol['itinerary']['slices'][0]['flights'][0][:2]
             origin_flight_number = int(sol['itinerary']['slices'][0]['flights'][0][2:])
             dep_time = datetime.datetime.strptime(sol['itinerary']['slices'][0]['departure'][:-6], "%Y-%m-%dT%H:%M")
@@ -305,7 +311,7 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
  
             flight_list = [origin_flight, return_flight]
             price = sol['displayTotal']
-            itinerary = Itinerary(flights=flight_list, price=price)
+            itinerary = Itinerary(flights=flight_list, price=price, ext_id=itinerary_id)
             solution.itineraries.append(itinerary)
  
         solution.save()
@@ -376,18 +382,4 @@ class CalendarItaMatrixDriver(AbstractItaMatrixDriver):
         solution.save()
         
         return solution
-
-class ViewItineraryDriver(object):
-    _logger = logging.getLogger(__name__)
-    engine = "ITA Matrix"
-    _base_url = "http://matrix.itasoftware.com"
-    _request_uri = "/xhr/shop/search?"
-    _http_header = {
-        'Host': 'matrix.itasoftware.com',
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Cache-Control': 'no-cache',
-        'Content-Length': '0'
-    }
     
-    def __init__(self, itinerary):
-        pass

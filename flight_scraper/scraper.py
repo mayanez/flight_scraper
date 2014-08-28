@@ -1,4 +1,4 @@
-from flight_scraper.solution_model import Solution, CalendarSolution, SeatQuery
+from flight_scraper.solution_model import Solution, ItaSolution, CalendarSolution, SeatQuery
 from engines.ita_matrix.driver import ItaMatrixDriver, ItaMatrixDriverMulti, CalendarItaMatrixDriver, Slice
 from datetime import date, timedelta
 
@@ -81,9 +81,9 @@ class FlightScraperMulti(object):
 
 def scrape_return():    
     scraper =   FlightScraper('SFO', 'SEA', date.today() + timedelta(days=30), date.today() + timedelta(days=47))
-    flights =   scraper.search_flights()
+    solution =  scraper.search_flights()
     
-    a = 1
+    return solution
     
 def scrape_multi():    
     from datetime import date
@@ -91,9 +91,9 @@ def scrape_multi():
     scraper.add_flight('SFO', 'SEA', date.today() + timedelta(days=30), airlines="AA DL AC")
     scraper.add_flight('SEA', 'PHX', date.today() + timedelta(days=40))
     scraper.add_flight('PHX', 'SFO', date.today() + timedelta(days=47))
-    flights =   scraper.search_flights()
+    solution =  scraper.search_flights()
     
-    a = 1
+    return solution
     
 if __name__=="__main__":
     import ConfigParser
@@ -110,4 +110,4 @@ if __name__=="__main__":
     except ConfigParser.NoOptionError:
         mongoengine.connect(Config.get("mongodb", "name"))
         
-    scrape_multi()
+    solution = scrape_multi()
