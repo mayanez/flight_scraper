@@ -1,0 +1,5823 @@
+{}&&{
+  "result": {
+    "id": "CsgO7tPwgjL9MxZfI0KYa4",
+    "session": "JZX0KYa4PzdEwxyOhPYSp78kJ",
+    "solutionCount": 500,
+    "solutionSet": "00JAytvFxg28QXcH3sMYaE1",
+    "carrierStopMatrix": {
+      "columns": [
+        {
+          "label": {
+            "code": "BA",
+            "shortName": "British Airways p.l.c."
+          }
+        },
+        {
+          "label": {
+            "code": "DL",
+            "shortName": "Delta Air Lines Inc."
+          }
+        },
+        {
+          "label": {
+            "code": "*",
+            "shortName": "Multiple Carriers"
+          }
+        },
+        {
+          "label": {
+            "code": "AA",
+            "shortName": "American Airlines Inc."
+          }
+        }
+      ],
+      "rows": [
+        {
+          "label": 1,
+          "cells": [
+            {
+              "minPrice": "USD1197.00"
+            },
+            {
+              "minPrice": "USD869.00",
+              "minPriceInColumn": true,
+              "minPriceInRow": true
+            },
+            {
+              "minPrice": "USD869.00",
+              "minPriceInColumn": true,
+              "minPriceInRow": true
+            },
+            {
+              
+            }
+          ]
+        },
+        {
+          "label": 2,
+          "cells": [
+            {
+              "minPrice": "USD862.00",
+              "minPriceInColumn": true,
+              "minPriceInGrid": true,
+              "minPriceInRow": true
+            },
+            {
+              "minPrice": "USD887.00"
+            },
+            {
+              "minPrice": "USD887.00"
+            },
+            {
+              "minPrice": "USD1186.00",
+              "minPriceInColumn": true
+            }
+          ]
+        },
+        {
+          "label": 3,
+          "cells": [
+            {
+              
+            },
+            {
+              "minPrice": "USD894.00",
+              "minPriceInRow": true
+            },
+            {
+              "minPrice": "USD894.00",
+              "minPriceInRow": true
+            },
+            {
+              
+            }
+          ]
+        }
+      ]
+    },
+    "currencyNotice": {
+      "ext": {
+        "price": "USD862.00"
+      }
+    },
+    "solutionList": {
+      "minPrice": "USD862.00",
+      "solutionCount": 500,
+      "pages": {
+        "count": 17,
+        "current": 1
+      },
+      "solutions": [
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL004",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "BA",
+              "shortName": "British Airways p.l.c."
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:05-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1210,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "RISKY_CONNECTION"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA297",
+                  "BA5761"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T14:05-08:00",
+                "duration": 2120,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA52",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL003",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              },
+              {
+                "code": "AA",
+                "shortName": "American Airlines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:05-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1210,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "RISKY_CONNECTION"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA297",
+                  "AA1377"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T14:05-08:00",
+                "duration": 2120,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA52",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL009",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "BA",
+              "shortName": "British Airways p.l.c."
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T10:50-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1915,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA297",
+                  "BA5719"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T14:05-08:00",
+                "duration": 2120,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA52",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL008",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              },
+              {
+                "code": "AA",
+                "shortName": "American Airlines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T10:50-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1915,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA297",
+                  "AA1628"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T14:05-08:00",
+                "duration": 2120,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA52",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00A",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              },
+              {
+                "code": "AA",
+                "shortName": "American Airlines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T10:50-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1915,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA1546",
+                  "AA1628"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T14:05-08:00",
+                "duration": 2120,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA52",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL002",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "BA",
+              "shortName": "British Airways p.l.c."
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:05-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1210,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "RISKY_CONNECTION"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA297",
+                  "BA5761"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T18:05-08:00",
+                "duration": 1880,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA48",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL001",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              },
+              {
+                "code": "AA",
+                "shortName": "American Airlines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:05-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1210,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "RISKY_CONNECTION"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA297",
+                  "AA1377"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T18:05-08:00",
+                "duration": 1880,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA48",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL006",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "BA",
+              "shortName": "British Airways p.l.c."
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T10:50-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1915,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA297",
+                  "BA5719"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T18:05-08:00",
+                "duration": 1880,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA48",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL005",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              },
+              {
+                "code": "AA",
+                "shortName": "American Airlines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T10:50-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1915,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA297",
+                  "AA1628"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T18:05-08:00",
+                "duration": 1880,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA48",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD861.40",
+          "id": "KOcFusUhwO2MCpQ09CkTiL007",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD862.00",
+            "pricePerMile": "USD0.0735181237",
+            "totalPrice": "USD861.40"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              },
+              {
+                "code": "AA",
+                "shortName": "American Airlines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11725
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "BA",
+                "shortName": "British Airways p.l.c."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T10:50-07:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 1915,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA2597",
+                  "BA1546",
+                  "AA1628"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LGW",
+                    "name": "London Gatwick"
+                  },
+                  {
+                    "code": "ORD",
+                    "name": "Chicago O'Hare"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-07T18:05-08:00",
+                "duration": 1880,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_AIRPORT_SLICE",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "BA48",
+                  "BA2596"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "LHR",
+                    "name": "London Heathrow"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD868.10",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00D",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD869.00",
+            "pricePerMile": "USD0.0795496156",
+            "totalPrice": "USD868.10"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 10924
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "DL",
+              "shortName": "Delta Air Lines Inc."
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T12:20-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 2070,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL614"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "DL8377"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD868.10",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD868.10",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00C",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD869.00",
+            "pricePerMile": "USD0.0795496156",
+            "totalPrice": "USD868.10"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 10924
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "*",
+                "shortName": "Multiple Carriers"
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T12:20-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 2070,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL614"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "AF3653",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD868.10",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD868.10",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00B",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD869.00",
+            "pricePerMile": "USD0.0795496156",
+            "totalPrice": "USD868.10"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 10924
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T12:20-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 2070,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL614"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD868.10",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD886.60",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00G",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD887.00",
+            "pricePerMile": "USD0.077800193",
+            "totalPrice": "USD886.60"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11401
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "*",
+                "shortName": "Multiple Carriers"
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T12:20-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 2070,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL614"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T15:35+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1031,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "AF3653",
+                  "AF9832",
+                  "AF3783"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD886.60",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD886.60",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00F",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD887.00",
+            "pricePerMile": "USD0.077800193",
+            "totalPrice": "USD886.60"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11401
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "*",
+                "shortName": "Multiple Carriers"
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T12:20-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 2070,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL614"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T15:35+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1031,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "AF3653",
+                  "AF1504",
+                  "AF3783"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD886.60",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD886.60",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00E",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD887.00",
+            "pricePerMile": "USD0.077800193",
+            "totalPrice": "USD886.60"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 11401
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-21T12:20-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 2070,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL614"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T15:35+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1031,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "AF9832",
+                  "AF3783"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD886.60",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.50",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00Q",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.071611663",
+            "totalPrice": "USD893.50"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12484
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "DL",
+              "shortName": "Delta Air Lines Inc."
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 1288,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL8606",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "DL8377"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.50",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.50",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00S",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.071611663",
+            "totalPrice": "USD893.50"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12484
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "*",
+                "shortName": "Multiple Carriers"
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 1288,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL8606",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "AF3653",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.50",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.50",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00r",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.071611663",
+            "totalPrice": "USD893.50"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12484
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 1288,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL8606",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.50",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.20",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00J",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.0692004026",
+            "totalPrice": "USD893.20"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12919
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "DL",
+              "shortName": "Delta Air Lines Inc."
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T07:25+02:00",
+                "duration": 1493,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL6636",
+                  "DL1044",
+                  "DL447",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  },
+                  {
+                    "code": "JFK",
+                    "name": "New York John F Kennedy International"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "DL8377"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.20",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.20",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00M",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.0692004026",
+            "totalPrice": "USD893.20"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12919
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "DL",
+              "shortName": "Delta Air Lines Inc."
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T07:25+02:00",
+                "duration": 1493,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL6636",
+                  "DL1047",
+                  "DL447",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  },
+                  {
+                    "code": "JFK",
+                    "name": "New York John F Kennedy International"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "DL8377"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.20",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.20",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00P",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.0692004026",
+            "totalPrice": "USD893.20"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12919
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "DL",
+              "shortName": "Delta Air Lines Inc."
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T07:25+02:00",
+                "duration": 1493,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL6636",
+                  "DL1047",
+                  "DL492",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  },
+                  {
+                    "code": "JFK",
+                    "name": "New York John F Kennedy International"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "DL8377"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.20",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.20",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00H",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.0692004026",
+            "totalPrice": "USD893.20"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12919
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T07:25+02:00",
+                "duration": 1493,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL6636",
+                  "DL1044",
+                  "DL447",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  },
+                  {
+                    "code": "JFK",
+                    "name": "New York John F Kennedy International"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.20",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.20",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00N",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.0692004026",
+            "totalPrice": "USD893.20"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12919
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T07:25+02:00",
+                "duration": 1493,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL6636",
+                  "DL1047",
+                  "DL492",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  },
+                  {
+                    "code": "JFK",
+                    "name": "New York John F Kennedy International"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.20",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.20",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00L",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.0692004026",
+            "totalPrice": "USD893.20"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12919
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "*",
+                "shortName": "Multiple Carriers"
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T07:25+02:00",
+                "duration": 1493,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL6636",
+                  "DL1047",
+                  "DL447",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  },
+                  {
+                    "code": "JFK",
+                    "name": "New York John F Kennedy International"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "AF3653",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.20",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.20",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00I",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.0692004026",
+            "totalPrice": "USD893.20"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12919
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "*",
+                "shortName": "Multiple Carriers"
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T07:25+02:00",
+                "duration": 1493,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL6636",
+                  "DL1044",
+                  "DL447",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  },
+                  {
+                    "code": "JFK",
+                    "name": "New York John F Kennedy International"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "AF3653",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.20",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.20",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00K",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.0692004026",
+            "totalPrice": "USD893.20"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12919
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T07:25+02:00",
+                "duration": 1493,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL6636",
+                  "DL1047",
+                  "DL447",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  },
+                  {
+                    "code": "JFK",
+                    "name": "New York John F Kennedy International"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL32",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.20",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD893.20",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00O",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD894.00",
+            "pricePerMile": "USD0.0692004026",
+            "totalPrice": "USD893.20"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12919
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "*",
+                "shortName": "Multiple Carriers"
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T07:25+02:00",
+                "duration": 1493,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL6636",
+                  "DL1047",
+                  "DL492",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  },
+                  {
+                    "code": "JFK",
+                    "name": "New York John F Kennedy International"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T17:10+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1126,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "LONG_LAYOVER",
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "AF3653",
+                  "AF1176"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD893.20",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD912.00",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00o",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD912.00",
+            "pricePerMile": "USD0.070364941",
+            "totalPrice": "USD912.00"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12961
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "*",
+                "shortName": "Multiple Carriers"
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 1288,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL8606",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T15:35+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1031,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "AF3653",
+                  "AF1504",
+                  "AF3783"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD912.00",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "displayTotal": "USD912.00",
+          "id": "KOcFusUhwO2MCpQ09CkTiL00p",
+          "passengerCount": 1,
+          "ext": {
+            "price": "USD912.00",
+            "pricePerMile": "USD0.070364941",
+            "totalPrice": "USD912.00"
+          },
+          "itinerary": {
+            "carriers": [
+              {
+                "code": "DL",
+                "shortName": "Delta Air Lines Inc."
+              },
+              {
+                "code": "AF",
+                "shortName": "Air France"
+              }
+            ],
+            "distance": {
+              "units": "MI",
+              "value": 12961
+            },
+            "ext": {
+              "dominantCarrier": {
+                "code": "*",
+                "shortName": "Multiple Carriers"
+              }
+            },
+            "singleCarrier": {
+              "code": "*",
+              "shortName": "Multiple Carriers"
+            },
+            "slices": [
+              {
+                "arrival": "2014-10-20T23:18-07:00",
+                "departure": "2014-10-20T10:50+02:00",
+                "duration": 1288,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "ext": {
+                  "warnings": {
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "LONG_LAYOVER"
+                    ]
+                  }
+                },
+                "flights": [
+                  "DL8707",
+                  "DL8606",
+                  "DL1849"
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "ATL",
+                    "name": "Atlanta Hartsfield-Jackson ATL"
+                  }
+                ]
+              },
+              {
+                "arrival": "2014-11-08T15:35+01:00",
+                "departure": "2014-11-07T13:24-08:00",
+                "duration": 1031,
+                "cabins": [
+                  "COACH"
+                ],
+                "destination": {
+                  "code": "VRN",
+                  "name": "Verona Villafranca"
+                },
+                "ext": {
+                  "warnings": {
+                    "overnight": true,
+                    "types": [
+                      "CHANGE_OF_TERMINAL",
+                      "OVERNIGHT"
+                    ]
+                  }
+                },
+                "flights": [
+                  "AF3653",
+                  "AF9832",
+                  "AF3783"
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "name": "Seattle\/Tacoma Sea\/Tac"
+                },
+                "segments": [
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  },
+                  {
+                    "pricings": [
+                      {
+                        "paxCount": 1
+                      }
+                    ]
+                  }
+                ],
+                "stops": [
+                  {
+                    "code": "CDG",
+                    "name": "Paris Charles de Gaulle"
+                  },
+                  {
+                    "code": "FCO",
+                    "name": "Rome Leonardo da Vinci-Fiumicino"
+                  }
+                ]
+              }
+            ]
+          },
+          "pricings": [
+            {
+              "displayPrice": "USD912.00",
+              "ext": {
+                "pax": {
+                  "adults": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "itineraryPriceSlider": {
+      "maxPrice": "USD7255.00",
+      "minPrice": "USD862.00",
+      "groups": [
+        {
+          "label": {
+            "end": "USD926.00",
+            "start": "USD862.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD990.00",
+            "start": "USD926.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD1054.00",
+            "start": "USD990.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD1118.00",
+            "start": "USD1054.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD1182.00",
+            "start": "USD1118.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD1246.00",
+            "start": "USD1182.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD1310.00",
+            "start": "USD1246.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD1374.00",
+            "start": "USD1310.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD1502.00",
+            "start": "USD1438.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD3102.00",
+            "start": "USD3038.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD3678.00",
+            "start": "USD3614.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD3742.00",
+            "start": "USD3678.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD3806.00",
+            "start": "USD3742.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD4958.00",
+            "start": "USD4894.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD5534.00",
+            "start": "USD5470.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD5598.00",
+            "start": "USD5534.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD5726.00",
+            "start": "USD5662.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD5790.00",
+            "start": "USD5726.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD5918.00",
+            "start": "USD5854.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD6110.00",
+            "start": "USD6046.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD6814.00",
+            "start": "USD6750.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD6942.00",
+            "start": "USD6878.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD7006.00",
+            "start": "USD6942.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD7070.00",
+            "start": "USD7006.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD7134.00",
+            "start": "USD7070.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD7198.00",
+            "start": "USD7134.00"
+          }
+        },
+        {
+          "label": {
+            "end": "USD7262.00",
+            "start": "USD7198.00"
+          }
+        }
+      ]
+    },
+    "itineraryCarrierList": {
+      "groups": [
+        {
+          "minPrice": "USD1186.00",
+          "label": {
+            "code": "AA",
+            "shortName": "American Airlines Inc."
+          }
+        },
+        {
+          "minPrice": "USD862.00",
+          "minPriceInSummary": true,
+          "label": {
+            "code": "BA",
+            "shortName": "British Airways p.l.c."
+          }
+        },
+        {
+          "minPrice": "USD869.00",
+          "label": {
+            "code": "DL",
+            "shortName": "Delta Air Lines Inc."
+          }
+        },
+        {
+          "minPrice": "USD869.00",
+          "label": {
+            "code": "*",
+            "shortName": "Multiple Carriers"
+          }
+        }
+      ]
+    },
+    "itineraryDepartureTimeRanges": [
+      {
+        "groups": [
+          {
+            "minPrice": "USD894.00",
+            "label": {
+              "end": "08:00",
+              "start": "00:00"
+            }
+          },
+          {
+            "minPrice": "USD869.00",
+            "label": {
+              "end": "11:00",
+              "start": "08:00"
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": "14:00",
+              "start": "11:00"
+            }
+          },
+          {
+            "label": {
+              "end": "17:00",
+              "start": "14:00"
+            }
+          },
+          {
+            "label": {
+              "end": "21:00",
+              "start": "17:00"
+            }
+          },
+          {
+            "label": {
+              "end": "23:59",
+              "start": "21:00"
+            }
+          }
+        ]
+      },
+      {
+        "groups": [
+          {
+            "minPrice": "USD960.00",
+            "label": {
+              "end": "08:00",
+              "start": "00:00"
+            }
+          },
+          {
+            "minPrice": "USD1103.00",
+            "label": {
+              "end": "11:00",
+              "start": "08:00"
+            }
+          },
+          {
+            "minPrice": "USD869.00",
+            "label": {
+              "end": "14:00",
+              "start": "11:00"
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": "17:00",
+              "start": "14:00"
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": "21:00",
+              "start": "17:00"
+            }
+          },
+          {
+            "label": {
+              "end": "23:59",
+              "start": "21:00"
+            }
+          }
+        ]
+      }
+    ],
+    "itineraryArrivalTimeRanges": [
+      {
+        "groups": [
+          {
+            "label": {
+              "end": "08:00",
+              "start": "00:00"
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": "11:00",
+              "start": "08:00"
+            }
+          },
+          {
+            "minPrice": "USD869.00",
+            "label": {
+              "end": "14:00",
+              "start": "11:00"
+            }
+          },
+          {
+            "minPrice": "USD1082.00",
+            "label": {
+              "end": "17:00",
+              "start": "14:00"
+            }
+          },
+          {
+            "minPrice": "USD1085.00",
+            "label": {
+              "end": "21:00",
+              "start": "17:00"
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": "23:59",
+              "start": "21:00"
+            }
+          }
+        ]
+      },
+      {
+        "groups": [
+          {
+            "label": {
+              "end": "08:00",
+              "start": "00:00"
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": "11:00",
+              "start": "08:00"
+            }
+          },
+          {
+            "label": {
+              "end": "14:00",
+              "start": "11:00"
+            }
+          },
+          {
+            "minPrice": "USD887.00",
+            "label": {
+              "end": "17:00",
+              "start": "14:00"
+            }
+          },
+          {
+            "minPrice": "USD869.00",
+            "label": {
+              "end": "21:00",
+              "start": "17:00"
+            }
+          },
+          {
+            "minPrice": "USD984.00",
+            "label": {
+              "end": "23:59",
+              "start": "21:00"
+            }
+          }
+        ]
+      }
+    ],
+    "durationSliderItinerary": [
+      {
+        "index": 0,
+        "maxDuration": 2265,
+        "minDuration": 1062,
+        "groups": [
+          {
+            "minPrice": "USD1082.00",
+            "label": {
+              "end": 1071,
+              "start": 1058
+            }
+          },
+          {
+            "minPrice": "USD1137.00",
+            "label": {
+              "end": 1084,
+              "start": 1071
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": 1214,
+              "start": 1201
+            }
+          },
+          {
+            "minPrice": "USD1085.00",
+            "label": {
+              "end": 1279,
+              "start": 1266
+            }
+          },
+          {
+            "minPrice": "USD894.00",
+            "label": {
+              "end": 1292,
+              "start": 1279
+            }
+          },
+          {
+            "minPrice": "USD914.00",
+            "label": {
+              "end": 1409,
+              "start": 1396
+            }
+          },
+          {
+            "minPrice": "USD894.00",
+            "label": {
+              "end": 1500,
+              "start": 1487
+            }
+          },
+          {
+            "minPrice": "USD6080.00",
+            "label": {
+              "end": 1812,
+              "start": 1799
+            }
+          },
+          {
+            "minPrice": "USD4904.00",
+            "label": {
+              "end": 1903,
+              "start": 1890
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": 1916,
+              "start": 1903
+            }
+          },
+          {
+            "minPrice": "USD869.00",
+            "label": {
+              "end": 2072,
+              "start": 2059
+            }
+          },
+          {
+            "minPrice": "USD1197.00",
+            "label": {
+              "end": 2267,
+              "start": 2254
+            }
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "maxDuration": 2120,
+        "minDuration": 990,
+        "groups": [
+          {
+            "minPrice": "USD1186.00",
+            "label": {
+              "end": 999,
+              "start": 987
+            }
+          },
+          {
+            "minPrice": "USD5781.00",
+            "label": {
+              "end": 1011,
+              "start": 999
+            }
+          },
+          {
+            "minPrice": "USD887.00",
+            "label": {
+              "end": 1035,
+              "start": 1023
+            }
+          },
+          {
+            "minPrice": "USD1465.00",
+            "label": {
+              "end": 1083,
+              "start": 1071
+            }
+          },
+          {
+            "minPrice": "USD3086.00",
+            "label": {
+              "end": 1095,
+              "start": 1083
+            }
+          },
+          {
+            "minPrice": "USD1102.00",
+            "label": {
+              "end": 1107,
+              "start": 1095
+            }
+          },
+          {
+            "minPrice": "USD960.00",
+            "label": {
+              "end": 1119,
+              "start": 1107
+            }
+          },
+          {
+            "minPrice": "USD869.00",
+            "label": {
+              "end": 1131,
+              "start": 1119
+            }
+          },
+          {
+            "minPrice": "USD1102.00",
+            "label": {
+              "end": 1143,
+              "start": 1131
+            }
+          },
+          {
+            "minPrice": "USD957.00",
+            "label": {
+              "end": 1155,
+              "start": 1143
+            }
+          },
+          {
+            "minPrice": "USD1210.00",
+            "label": {
+              "end": 1203,
+              "start": 1191
+            }
+          },
+          {
+            "minPrice": "USD920.00",
+            "label": {
+              "end": 1227,
+              "start": 1215
+            }
+          },
+          {
+            "minPrice": "USD921.00",
+            "label": {
+              "end": 1239,
+              "start": 1227
+            }
+          },
+          {
+            "minPrice": "USD5509.00",
+            "label": {
+              "end": 1251,
+              "start": 1239
+            }
+          },
+          {
+            "minPrice": "USD1103.00",
+            "label": {
+              "end": 1407,
+              "start": 1395
+            }
+          },
+          {
+            "minPrice": "USD4904.00",
+            "label": {
+              "end": 1455,
+              "start": 1443
+            }
+          },
+          {
+            "minPrice": "USD1044.00",
+            "label": {
+              "end": 1575,
+              "start": 1563
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": 1887,
+              "start": 1875
+            }
+          },
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "end": 2127,
+              "start": 2115
+            }
+          }
+        ]
+      }
+    ],
+    "itineraryOrigins": [
+      {
+        "groups": [
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "code": "VRN",
+              "name": "Verona Villafranca"
+            }
+          }
+        ]
+      },
+      {
+        "groups": [
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "code": "SEA",
+              "name": "Seattle\/Tacoma Sea\/Tac"
+            }
+          }
+        ]
+      }
+    ],
+    "itineraryDestinations": [
+      {
+        "groups": [
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "code": "SEA",
+              "name": "Seattle\/Tacoma Sea\/Tac"
+            }
+          }
+        ]
+      },
+      {
+        "groups": [
+          {
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true,
+            "label": {
+              "code": "VRN",
+              "name": "Verona Villafranca"
+            }
+          }
+        ]
+      }
+    ],
+    "itineraryStopCountList": {
+      "groups": [
+        {
+          "label": 1,
+          "minPrice": "USD869.00"
+        },
+        {
+          "label": 2,
+          "minPrice": "USD862.00",
+          "minPriceInSummary": true
+        },
+        {
+          "label": 3,
+          "minPrice": "USD894.00"
+        }
+      ]
+    },
+    "warningsItinerary": [
+      {
+        "groups": [
+          {
+            "label": "CHANGE_OF_AIRPORT_SLICE",
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true
+          },
+          {
+            "label": "CHANGE_OF_TERMINAL",
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true
+          },
+          {
+            "label": "LONG_LAYOVER",
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true
+          },
+          {
+            "label": "OVERNIGHT",
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true
+          },
+          {
+            "label": "RISKY_CONNECTION",
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true
+          }
+        ]
+      },
+      {
+        "groups": [
+          {
+            "label": "CHANGE_OF_AIRPORT_SLICE",
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true
+          },
+          {
+            "label": "CHANGE_OF_TERMINAL",
+            "minPrice": "USD869.00"
+          },
+          {
+            "label": "LONG_LAYOVER",
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true
+          },
+          {
+            "label": "OVERNIGHT",
+            "minPrice": "USD862.00",
+            "minPriceInSummary": true
+          },
+          {
+            "label": "RISKY_CONNECTION",
+            "minPrice": "USD960.00"
+          },
+          {
+            "label": "TIGHT_CONNECTION",
+            "minPrice": "USD5781.00"
+          }
+        ]
+      }
+    ]
+  }
+}
