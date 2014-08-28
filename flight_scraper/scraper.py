@@ -21,7 +21,7 @@ class FlightScraper(object):
     def search_calendar(self):
         ita_driver = CalendarItaMatrixDriver(self.origin, self.destination, self.depart_date, self.return_date, 
                                      day_range=self.day_range, max_stops=self.max_stops, airlines=self.airlines)
-        return ita_driver.build_solution()
+        return ita_driver.build_solutions()
     
     def minimum_trips(self):
         """
@@ -77,7 +77,7 @@ class FlightScraperMulti(object):
         self._ita_driver.add_slice_params(origin, destination, depart_date, airlines)
         
     def search_flights(self):
-        return self._ita_driver.build_solution()
+        return self._ita_driver.build_solutions()
 
 def scrape_return():    
     scraper =   FlightScraper('SFO', 'SEA', date.today() + timedelta(days=30), date.today() + timedelta(days=47))
