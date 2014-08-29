@@ -214,20 +214,24 @@ class ItaMatrixDriverMulti(AbstractItaMatrixDriver):
             itinerary_id = sol['id']
             flight_list = list()
             for slice in sol['itinerary']['slices']:
+                # FIXME: Connecting flights aren't considered; number of flights not considered.
                 flight_airline = slice['flights'][0][:2]
                 flight_number = int(slice['flights'][0][2:])
+                # FIXME: UTC time might be important
                 dep_time = datetime.datetime.strptime(slice['departure'][:-6], "%Y-%m-%dT%H:%M")
                 arr_time = datetime.datetime.strptime(slice['arrival'][:-6], "%Y-%m-%dT%H:%M")
                 arr_city = slice['destination']['code']
                 dep_city = slice['origin']['code']
      
-                slice_flight = Flight(airline=flight_airline, fno=flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
-                #slice_flight.save()
+                flight = Flight(airline=flight_airline, fno=flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
+                flight.save()
                 
-                flight_list.append(slice_flight)
+                flight_list.append(flight)
  
             price = sol['displayTotal']
-            itinerary = ItaItinerary(flights=flight_list, price=price, ext_id=itinerary_id)
+            price_per_mile = sol['ext']['pricePerMile']
+            distance = sol['itinerary']['distance']['value']
+            itinerary = ItaItinerary(flights=flight_list, price=price, price_per_mile=price_per_mile, ext_id=itinerary_id, distance=distance)
             solution.itineraries.append(itinerary)
  
         solution.save()
@@ -300,7 +304,7 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
             dep_city = sol['itinerary']['slices'][0]['origin']['code']
  
             origin_flight = Flight(airline=origin_flight_airline, fno=origin_flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
-            #origin_flight.save()
+            origin_flight.save()
  
             return_flight_airline = sol['itinerary']['slices'][1]['flights'][0][:2]
             return_flight_number = int(sol['itinerary']['slices'][1]['flights'][0][2:])
@@ -310,7 +314,7 @@ class ItaMatrixDriver(AbstractItaMatrixDriver):
             dep_city = sol['itinerary']['slices'][1]['origin']['code']
  
             return_flight = Flight(airline=return_flight_airline, fno=return_flight_number, dep_city=dep_city, arr_city=arr_city, dep_time=dep_time, arr_time=arr_time)
-            #return_flight.save()
+            return_flight.save()
  
             flight_list = [origin_flight, return_flight]
             price = sol['displayTotal']
@@ -470,13 +474,9 @@ class ViewItineraryDriver(object):
         self._logger.info('Creating objects to insert to database')
         return self._parse_breakdown(response_json)
     
-    def _parse_breakdown(self, response_json):  
-        print ""
-        print ""
-        print response_json['result']['bookingDetails']['tickets'][0]['pricings'][0]['ext']['taxTotals']
-        
+    def _parse_breakdown(self, response_json):          
         # Base fares
-        for base_fare in response_json['result']['bookingDetails']['tickets'][0]['pricings'][0]['ext']['fares'][0]:
+        for base_fare in response_json['result']['bookingDetails']['tickets'][0]['pricings'][0]['fares']:
             rate_code = base_fare['code']
             price = base_fare['displayAdjustedPrice']
             key = base_fare['key']

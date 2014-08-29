@@ -11,7 +11,7 @@ class Seat(EmbeddedDocument):
     def __str__(self):
         return "cabin: %s fare: %s avail: %s" % (self.cabin_code, self.fare_class, self.availability)
 
-class Flight(EmbeddedDocument):
+class Flight(Document):
     airline = StringField()
     fno = IntField()
     dep_city = StringField()
@@ -42,8 +42,9 @@ class Flight(EmbeddedDocument):
     
 
 class Itinerary(EmbeddedDocument):
-    flights = ListField(EmbeddedDocumentField(Flight))
+    flights = ListField(ReferenceField(Flight))
     price = StringField()
+    price_per_mile = StringField()
     ext_id = StringField(required=False)
 
     def __str__(self):
@@ -64,7 +65,9 @@ class ItaItinerary(Itinerary):
     #flight_details = ListField(EmbeddedDocumentField(FlightDetails))
     taxes = ListField(EmbeddedDocumentField(PriceComponent))
     base_fares = ListField(EmbeddedDocumentField(PriceComponent))
-    distance = StringField()
+    distance = IntField()
+    # FIXME: all_flights contains all of the flight connections in the breakdown. 
+    all_flights = ListField(ReferenceField(Flight))
 
 class Solution(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
@@ -85,7 +88,7 @@ class ItaSolution(Solution):
 
 class SeatQuery(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
-    flights = ListField(EmbeddedDocumentField(Flight))
+    flights = ListField(ReferenceField(Flight))
 
 class TripMinimumPrice(EmbeddedDocument):
     dep_city = StringField()
