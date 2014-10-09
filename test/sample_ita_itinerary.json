@@ -1,0 +1,645 @@
+{
+  "result": {
+    "id": "sx7pjCTUnbu8kuOP50KYR9",
+    "session": "6W60KYR6zSjTkicN7WgwOA92n",
+    "solutionCount": 500,
+    "solutionSet": "0EI4mYoNuxZ6UnAPrvqq47B",
+    "currencyNotice": {
+      "ext": {
+        "price": "USD862.00"
+      }
+    },
+    "bookingDetails": {
+      "displayTotal": "USD861.40",
+      "id": "Jpt7IVb5Qv8NBWx8cO9e4K004",
+      "passengerCount": 1,
+      "co2Emissions": {
+        "estimate": 1761
+      },
+      "ext": {
+        "totalPrice": "USD861.40"
+      },
+      "itinerary": {
+        "distance": {
+          "units": "MI",
+          "value": 11725
+        },
+        "slices": [
+          {
+            "arrival": "2014-10-20T23:05-07:00",
+            "departure": "2014-10-20T11:55+02:00",
+            "stopCount": 2,
+            "destination": {
+              "code": "SEA",
+              "name": "Seattle\/Tacoma Sea\/Tac",
+              "city": {
+                "name": "Seattle"
+              }
+            },
+            "ext": {
+              "warnings": "CHANGE_OF_AIRPORT_SLICE,LONG_LAYOVER,CHANGE_OF_TERMINAL,RISKY_CONNECTION"
+            },
+            "origin": {
+              "code": "VRN",
+              "name": "Verona Villafranca",
+              "city": {
+                "name": "Verona"
+              }
+            },
+            "segments": [
+              {
+                "arrival": "2014-10-20T12:50+01:00",
+                "departure": "2014-10-20T11:55+02:00",
+                "duration": 115,
+                "bookingInfos": [
+                  {
+                    "bookingCode": "Q",
+                    "cabin": "COACH"
+                  }
+                ],
+                "carrier": {
+                  "code": "BA",
+                  "shortName": "British Airways p.l.c."
+                },
+                "connection": {
+                  "changeOfAirport": true,
+                  "changeOfTerminal": true,
+                  "duration": 180
+                },
+                "destination": {
+                  "code": "LGW",
+                  "city": {
+                    "name": "London"
+                  }
+                },
+                "flight": {
+                  "number": 2597
+                },
+                "legs": [
+                  {
+                    "arrival": "2014-10-20T12:50+01:00",
+                    "departure": "2014-10-20T11:55+02:00",
+                    "duration": 115,
+                    "aircraft": {
+                      "shortName": "Boeing 737"
+                    },
+                    "destination": {
+                      "code": "LGW",
+                      "name": "London Gatwick",
+                      "city": {
+                        "name": "London"
+                      }
+                    },
+                    "origin": {
+                      "code": "VRN",
+                      "city": {
+                        "name": "Verona"
+                      }
+                    },
+                    "services": [
+                      {
+                        "amenities": [
+                          "Non-smoking"
+                        ],
+                        "meals": [
+                          "Snack or Brunch"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "origin": {
+                  "code": "VRN",
+                  "city": {
+                    "name": "Verona"
+                  }
+                }
+              },
+              {
+                "arrival": "2014-10-20T18:25-05:00",
+                "departure": "2014-10-20T15:50+01:00",
+                "duration": 515,
+                "bookingInfos": [
+                  {
+                    "bookingCode": "Q",
+                    "cabin": "COACH"
+                  }
+                ],
+                "carrier": {
+                  "code": "BA",
+                  "shortName": "British Airways p.l.c."
+                },
+                "connection": {
+                  "changeOfTerminal": true,
+                  "duration": 140
+                },
+                "destination": {
+                  "code": "ORD",
+                  "city": {
+                    "name": "Chicago"
+                  }
+                },
+                "flight": {
+                  "number": 297
+                },
+                "legs": [
+                  {
+                    "arrival": "2014-10-20T18:25-05:00",
+                    "departure": "2014-10-20T15:50+01:00",
+                    "duration": 515,
+                    "aircraft": {
+                      "shortName": "Boeing 777"
+                    },
+                    "destination": {
+                      "code": "ORD",
+                      "name": "Chicago O'Hare",
+                      "city": {
+                        "name": "Chicago"
+                      }
+                    },
+                    "origin": {
+                      "code": "LHR",
+                      "city": {
+                        "name": "London"
+                      }
+                    },
+                    "services": [
+                      {
+                        "amenities": [
+                          "Non-smoking"
+                        ],
+                        "meals": [
+                          "Meal"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "origin": {
+                  "code": "LHR",
+                  "city": {
+                    "name": "London"
+                  }
+                }
+              },
+              {
+                "arrival": "2014-10-20T23:05-07:00",
+                "codeshare": true,
+                "departure": "2014-10-20T20:45-05:00",
+                "duration": 260,
+                "bookingInfos": [
+                  {
+                    "bookingCode": "Q",
+                    "cabin": "COACH"
+                  }
+                ],
+                "carrier": {
+                  "code": "BA",
+                  "shortName": "British Airways p.l.c."
+                },
+                "destination": {
+                  "code": "SEA",
+                  "city": {
+                    "name": "Seattle"
+                  }
+                },
+                "ext": {
+                  "operationalDisclosure": "OPERATED BY AMERICAN AIRLINES INC."
+                },
+                "flight": {
+                  "number": 5761
+                },
+                "legs": [
+                  {
+                    "arrival": "2014-10-20T23:05-07:00",
+                    "departure": "2014-10-20T20:45-05:00",
+                    "duration": 260,
+                    "aircraft": {
+                      "shortName": "Boeing 737"
+                    },
+                    "destination": {
+                      "code": "SEA",
+                      "name": "Seattle\/Tacoma Sea\/Tac",
+                      "city": {
+                        "name": "Seattle"
+                      }
+                    },
+                    "origin": {
+                      "code": "ORD",
+                      "city": {
+                        "name": "Chicago"
+                      }
+                    },
+                    "services": [
+                      {
+                        "amenities": [
+                          "Non-smoking"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "origin": {
+                  "code": "ORD",
+                  "city": {
+                    "name": "Chicago"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "arrival": "2014-11-09T10:25+01:00",
+            "departure": "2014-11-07T14:05-08:00",
+            "stopCount": 1,
+            "destination": {
+              "code": "VRN",
+              "name": "Verona Villafranca",
+              "city": {
+                "name": "Verona"
+              }
+            },
+            "ext": {
+              "warnings": "LONG_LAYOVER,CHANGE_OF_AIRPORT_SLICE,OVERNIGHT"
+            },
+            "origin": {
+              "code": "SEA",
+              "name": "Seattle\/Tacoma Sea\/Tac",
+              "city": {
+                "name": "Seattle"
+              }
+            },
+            "segments": [
+              {
+                "arrival": "2014-11-08T07:30+00:00",
+                "departure": "2014-11-07T14:05-08:00",
+                "duration": 565,
+                "bookingInfos": [
+                  {
+                    "bookingCode": "O",
+                    "cabin": "COACH"
+                  }
+                ],
+                "carrier": {
+                  "code": "BA",
+                  "shortName": "British Airways p.l.c."
+                },
+                "connection": {
+                  "changeOfAirport": true,
+                  "changeOfTerminal": true,
+                  "duration": 1435
+                },
+                "destination": {
+                  "code": "LHR",
+                  "city": {
+                    "name": "London"
+                  }
+                },
+                "flight": {
+                  "number": 52
+                },
+                "legs": [
+                  {
+                    "arrival": "2014-11-08T07:30+00:00",
+                    "departure": "2014-11-07T14:05-08:00",
+                    "duration": 565,
+                    "aircraft": {
+                      "shortName": "Boeing 777"
+                    },
+                    "destination": {
+                      "code": "LHR",
+                      "name": "London Heathrow",
+                      "city": {
+                        "name": "London"
+                      }
+                    },
+                    "origin": {
+                      "code": "SEA",
+                      "city": {
+                        "name": "Seattle"
+                      }
+                    },
+                    "services": [
+                      {
+                        "amenities": [
+                          "Non-smoking"
+                        ],
+                        "meals": [
+                          "Meal"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "origin": {
+                  "code": "SEA",
+                  "city": {
+                    "name": "Seattle"
+                  }
+                }
+              },
+              {
+                "arrival": "2014-11-09T10:25+01:00",
+                "departure": "2014-11-09T07:25+00:00",
+                "duration": 120,
+                "bookingInfos": [
+                  {
+                    "bookingCode": "S",
+                    "cabin": "COACH"
+                  }
+                ],
+                "carrier": {
+                  "code": "BA",
+                  "shortName": "British Airways p.l.c."
+                },
+                "destination": {
+                  "code": "VRN",
+                  "city": {
+                    "name": "Verona"
+                  }
+                },
+                "flight": {
+                  "number": 2596
+                },
+                "legs": [
+                  {
+                    "arrival": "2014-11-09T10:25+01:00",
+                    "departure": "2014-11-09T07:25+00:00",
+                    "duration": 120,
+                    "aircraft": {
+                      "shortName": "Boeing 737"
+                    },
+                    "destination": {
+                      "code": "VRN",
+                      "name": "Verona Villafranca",
+                      "city": {
+                        "name": "Verona"
+                      }
+                    },
+                    "origin": {
+                      "code": "LGW",
+                      "city": {
+                        "name": "London"
+                      }
+                    },
+                    "services": [
+                      {
+                        "amenities": [
+                          "Non-smoking"
+                        ],
+                        "meals": [
+                          "Snack or Brunch"
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "origin": {
+                  "code": "LGW",
+                  "city": {
+                    "name": "London"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "pricings": [
+        {
+          "displayPrice": "USD861.40",
+          "ext": {
+            "totalPrice": "USD861.40",
+            "pax": {
+              "adults": 1
+            }
+          }
+        }
+      ],
+      "tickets": [
+        {
+          "displayPrice": "USD861.40",
+          "pricings": [
+            {
+              "displayPrice": "USD861.40",
+              "ext": {
+                "totalPrice": "USD861.40",
+                "pax": {
+                  "adults": 1
+                },
+                "taxTotals": [
+                  {
+                    "code": "AY",
+                    "totalDisplayPrice": "USD11.20",
+                    "tax": {
+                      "key": "0\/0",
+                      "name": "US September 11th Security Fee"
+                    }
+                  },
+                  {
+                    "code": "XA",
+                    "totalDisplayPrice": "USD5.00",
+                    "tax": {
+                      "key": "0\/1",
+                      "name": "USDA APHIS Fee"
+                    }
+                  },
+                  {
+                    "code": "XY",
+                    "totalDisplayPrice": "USD7.00",
+                    "tax": {
+                      "key": "0\/2",
+                      "name": "US Immigration Fee"
+                    }
+                  },
+                  {
+                    "code": "YC",
+                    "totalDisplayPrice": "USD5.50",
+                    "tax": {
+                      "key": "0\/3",
+                      "name": "US Customs Fee"
+                    }
+                  },
+                  {
+                    "code": "UB",
+                    "totalDisplayPrice": "USD76.40",
+                    "tax": {
+                      "key": "0\/4",
+                      "name": "United Kingdom Passenger Service Charge"
+                    }
+                  },
+                  {
+                    "code": "US",
+                    "totalDisplayPrice": "USD17.50",
+                    "tax": {
+                      "key": "0\/5",
+                      "name": "US International Arrival Tax"
+                    }
+                  },
+                  {
+                    "code": "IT",
+                    "totalDisplayPrice": "USD8.00",
+                    "tax": {
+                      "key": "0\/6",
+                      "name": "Italian Embarkation Tax"
+                    }
+                  },
+                  {
+                    "code": "VT",
+                    "totalDisplayPrice": "USD4.10",
+                    "tax": {
+                      "key": "0\/7",
+                      "name": "Italian Security Charge"
+                    }
+                  },
+                  {
+                    "code": "EX",
+                    "totalDisplayPrice": "USD0.90",
+                    "tax": {
+                      "key": "0\/8",
+                      "name": "Italian Security Bag Charge"
+                    }
+                  },
+                  {
+                    "code": "HB",
+                    "totalDisplayPrice": "USD8.60",
+                    "tax": {
+                      "key": "0\/9",
+                      "name": "Italian Council City Tax"
+                    }
+                  },
+                  {
+                    "code": "MJ",
+                    "totalDisplayPrice": "USD1.20",
+                    "tax": {
+                      "key": "0\/10",
+                      "name": "Italian Passenger Service Charge"
+                    }
+                  },
+                  {
+                    "code": "YQ",
+                    "totalDisplayPrice": "USD256.00",
+                    "tax": {
+                      "key": "0\/11"
+                    }
+                  },
+                  {
+                    "code": "US",
+                    "totalDisplayPrice": "USD17.50",
+                    "tax": {
+                      "key": "0\/14",
+                      "name": "US International Departure Tax"
+                    }
+                  },
+                  {
+                    "code": "XF",
+                    "totalDisplayPrice": "USD4.50",
+                    "tax": {
+                      "key": "0\/16",
+                      "name": "US Passenger Facility Charge"
+                    }
+                  }
+                ]
+              },
+              "fareCalculations": [
+                {
+                  "lines": [
+                    "VRN BA X\/LON BA X\/E\/CHI BA SEA M 233.89QKX7SAL BA X\/LON BA VRN M 217.57OKW7SAL NUC 451.46 END ROE 0.735385 XT 0.90EX 8.60HB 8.00IT 1.20MJ 4.10VT 76.40UB 5.50YC 7.00XY 5.00XA 35.00US 11.20AY 256.00YQ 4.50XF SEA4.50"
+                  ]
+                }
+              ],
+              "fares": [
+                {
+                  "carrier": "BA",
+                  "code": "QKX7SAL",
+                  "destinationCity": "SEA",
+                  "displayAdjustedPrice": "USD226.91",
+                  "key": "0\/0",
+                  "originCity": "VRN",
+                  "tag": "ROUND-TRIP",
+                  "bookingInfos": [
+                    {
+                      "bookingCode": "Q",
+                      "cabin": "COACH",
+                      "segment": {
+                        "destination": "LGW",
+                        "origin": "VRN"
+                      }
+                    },
+                    {
+                      "bookingCode": "Q",
+                      "cabin": "COACH",
+                      "segment": {
+                        "destination": "ORD",
+                        "origin": "LHR"
+                      }
+                    },
+                    {
+                      "bookingCode": "Q",
+                      "cabin": "COACH",
+                      "segment": {
+                        "destination": "SEA",
+                        "origin": "ORD"
+                      }
+                    }
+                  ],
+                  "ptcs": [
+                    "ADT"
+                  ]
+                },
+                {
+                  "carrier": "BA",
+                  "code": "OKW7SAL",
+                  "destinationCity": "VRN",
+                  "displayAdjustedPrice": "USD211.08",
+                  "key": "0\/1",
+                  "originCity": "SEA",
+                  "tag": "ROUND-TRIP",
+                  "bookingInfos": [
+                    {
+                      "bookingCode": "O",
+                      "cabin": "COACH",
+                      "segment": {
+                        "destination": "LHR",
+                        "origin": "SEA"
+                      }
+                    },
+                    {
+                      "bookingCode": "S",
+                      "cabin": "COACH",
+                      "segment": {
+                        "destination": "VRN",
+                        "origin": "LGW"
+                      }
+                    }
+                  ],
+                  "ptcs": [
+                    "ADT"
+                  ]
+                }
+              ],
+              "notes": [
+                "This ticket is non-refundable.",
+                "Changes to this ticket will incur a penalty fee."
+              ],
+              "pricingTaxes": [
+                {
+                  "code": "YQ",
+                  "displayPrice": "USD128.00",
+                  "id": "YQF-BA"
+                },
+                {
+                  "code": "YQ",
+                  "displayPrice": "USD128.00",
+                  "id": "YQF-BA"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+

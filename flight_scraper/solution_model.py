@@ -11,7 +11,7 @@ class Seat(EmbeddedDocument):
     def __str__(self):
         return "cabin: %s fare: %s avail: %s" % (self.cabin_code, self.fare_class, self.availability)
 
-class Flight(EmbeddedDocument):
+class Flight(Document):
     airline = StringField()
     fno = IntField()
     dep_city = StringField()
@@ -39,16 +39,35 @@ class Flight(EmbeddedDocument):
                      'date':self.dep_time.strftime('%m-%d-%Y') }
         url = url + urllib.urlencode(params)
         return url
+    
 
 class Itinerary(EmbeddedDocument):
-    flights = ListField(EmbeddedDocumentField(Flight))
+    flights = ListField(ReferenceField(Flight))
     price = StringField()
+    price_per_mile = StringField()
+    ext_id = StringField(required=False)
 
     def __str__(self):
         return "Itinerary:\n \tPrice=%s\n \t%s" % (self.price, [str(f) for f in self.flights])
 
     def set_stop(self, conn_flight):
         return None
+    
+    meta = {'allow_inheritance': True}
+    
+class PriceComponent(EmbeddedDocument):
+    rate_code = StringField(required=True)
+    price = StringField(required=True)
+    key = StringField()
+    description = StringField()
+
+class ItaItinerary(Itinerary):
+    #flight_details = ListField(EmbeddedDocumentField(FlightDetails))
+    taxes = ListField(EmbeddedDocumentField(PriceComponent))
+    base_fares = ListField(EmbeddedDocumentField(PriceComponent))
+    distance = IntField()
+    # FIXME: all_flights contains all of the flight connections in the breakdown. 
+    all_flights = ListField(ReferenceField(Flight))
 
 class Solution(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
@@ -59,10 +78,17 @@ class Solution(Document):
     return_date = DateTimeField()
     min_price = StringField(required=False)
     itineraries = ListField(EmbeddedDocumentField(Itinerary))
+    session = StringField(required=False)
+    
+    meta = {'allow_inheritance': True}
+    
+class ItaSolution(Solution):
+    session      = StringField(required=True)
+    solution_set = StringField(required=True)
 
 class SeatQuery(Document):
     query_date = DateTimeField(default=datetime.datetime.utcnow(), required=True)
-    flights = ListField(EmbeddedDocumentField(Flight))
+    flights = ListField(ReferenceField(Flight))
 
 class TripMinimumPrice(EmbeddedDocument):
     dep_city = StringField()

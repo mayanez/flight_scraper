@@ -11,6 +11,8 @@ Also checkout Flightstats (https://flightstats.com) its a great site for finding
 #Installation#
 (build steps)
 Copy flight_scraper.cfg.example to flight_scraper.cfg
+python setup.py build
+python setup.py install
 
 #Dependencies#
 * Requests (http://docs.python-requests.org/)
